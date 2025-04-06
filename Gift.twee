@@ -1,0 +1,2969 @@
+:: StoryTitle
+Gift
+
+
+:: StoryData
+{
+  "ifid": "18EDA2A6-D331-43A5-9682-FC1C317F4DB5",
+  "format": "SugarCube",
+  "format-version": "2.37.3",
+  "start": "Final room",
+  "tag-colors": {
+    "Ending": "purple",
+    "data": "orange",
+    "add-thing": "green",
+    "lose-thing": "red",
+    "him-only": "blue"
+  },
+  "zoom": 0.6
+}
+
+
+:: Abyss [add-thing] {"position":"900,5950","size":"100,100"}
+<<nobr>>
+You get closer to the edge of the abyss and look down. It feels... infinite. But it must end at some point, right? You look around, trying to find something small to throw down. You quickly find a small pebble, and throw it to the abyss. You wait in silence, holding your breath in an effort to hear when the piece of rock will hit the bottom. 
+<br><br>
+A few seconds go by. Then, a minute. Two, three, five.
+<br><br>
+No sound is heard. 
+<br><br>
+Eventually, you decide you would rather think that you just missed the sound rather than try to wrap your head around the fact that the hole in front of you might lack a bottom. 
+<<if $beenabyss == false>>
+To your surprise, as you turn around, you see something on the ground you are sure wasn't there before. You kneel to inspect it. It's a seed! A nut, to be precise. It's bigger than you expected, and the colour is unlike any you have ever seen. You pick up the nut with your fingers to inspect it closer. Huh. That's funny. It is black as if it was constantly submersed into shadows. You aren't too sure what kind of tree that would spawn, but you are quite curious to find out.
+<<set $box.push($nut)>>
+<<set $beenabyss = true>>
+<</if>>
+<br><br>
+[[Throw yourself|Why]]
+<br><br>
+[[Go back|Cave room]]
+<</nobr>>
+
+
+:: Age {"position":"850,1000","size":"100,100"}
+You ask in the most polite way possible about Lyhale's age, and the robot lets out what you interpret as a chuckle.
+<font color="#fcba03">
+“Oh, traveller, don't fret. I understand the curiosity. I am over two millennia old, but my body has been replaced and upgraded so many times there is little left of the original me anymore. If my memory doesn't fail me, you humans have something I could compare it with: the ship of Theseus. Does it ring any bells? After having all its body replaced by newer wood to help keep it alive, is it really still the same ship?”
+</font>
+The robot makes a small pause before continuing.
+<font color="#fcba03">
+“I think so, because, despite every change our body might go through, our mind and soul make us unique.”
+</font>
+After that philosophical answer, Lyhale goes back to cleaning his glasses.
+
+[[Ask for a glass of water|Glass of water]]
+
+[[Ask for a beer|Beer]]
+
+[[Rest for a while|Rest]]
+
+[[Talk with Lyhale some more|Chat]]
+<<if $ending == true>>
+[[Return home|Ending]]
+<</if>>
+[[Go back|Main room]]
+
+
+:: Aha no [Ending add-thing] {"position":"900,6550","size":"100,100"}
+<<nobr>>
+<<if ($seconds < 1) or ($solved == true)>>
+<<set $box.push($mdk)>>
+You run towards the pedestal; the thought of finally finding a way to get home replenishes all your energy. 
+<br><br>
+You quickly get to the other side of the hallway without problems and find yourself in front of the pedestal. The doorknob is right before you, waiting for you to reach for it and grab it. It's so close... You lift it slowly, scared that you might set off some kind of trap or that something horrible might happen now that you are so close to returning home. 
+<br><br>
+At first, nothing weird happens. But after a few seconds, you hear a "click". It came from the door! Could it be that it unlocked itself? Before you even get the chance to rush towards it, a robotic voice sounds across the hallway.
+<br><br>
+<font color="#9761ed">
+"Layers of traps: reactivated. Starting intruder alert protocol. Countdown starts now."
+</font>
+<br><br>
+You look around, panicking. That's... Not good. You notice that hanging on the wall, there is a frame with a screen. The screen is red, yet it has some text: "To deactivate, please input the answers in the opposite order you input them."
+<br><br>
+Meanwhile, the robotic voice counts down the seconds that you have left.
+<<set $seconds = 60>>
+<br><br>
+<font color="#9761ed">
+<b>Countdown: <span id="countdown">$seconds seconds remaining</span>.</b>
+</font>
+<br><br>
+[[Type the answers|Type]]
+<<silently>>
+<<repeat 1s>>
+<<set $seconds to $seconds - 1>>
+<<if $seconds > 0>>
+<<replace "#countdown">>$seconds seconds remaining<</replace>>
+<<else>>
+<<replace "#countdown">> <<goto "Time out">> <</replace>>
+<<stop>>
+<</if>>
+<</repeat>>
+<</silently>>
+<<elseif ($seconds >= 1)>>
+You run towards the pedestal; the thought of finally finding a way to get home replenishes all your energy. 
+<br><br>
+The happiness and energy are shortlived, however, as one of the tiles you step on sinks under your foot. A "click" sound can be heard; before you know it, there is no floor anymore. You fall, and while the fall isn't long enough to hurt you, the spikes on the ground do the trick just fine. 
+<br><br>
+Perhaps you should be more careful next time. Oh wait, no, you are dead; there is no next time. Have action movies taught you nothing? This is the oldest trick in the book, come on.
+<br><br>
+Ending: 10
+<</if>>
+<</nobr>>
+
+
+:: Answer 1 {"position":"1050,6700","size":"100,100"}
+<<nobr>>
+You type an answer onto the screen.
+<br><br>
+A(n) <<textbox "$answer1" "">>
+<br><br>
+[[Check your answer|Check1]]
+<br><br>
+[[Read the riddle again|Riddle]]
+<<repeat 1s>>
+<<set $seconds = $seconds - 1>>
+<<if $seconds == 0>>
+<br><br>
+<<goto "Huh?">>
+<<stop>>
+<</if>>
+<</repeat>>
+<</nobr>>
+
+
+
+:: Answer 2 {"position":"1050,6850","size":"100,100"}
+<<nobr>>
+You type an answer onto the screen.
+<br><br>
+A(n) <<textbox "$answer2" "">>
+<br><br>
+[[Check your answer|Check2]]
+<br><br>
+[[Read the riddle again|Riddle]]
+<<repeat 1s>>
+<<set $seconds = $seconds - 1>>
+<<if $seconds == 0>>
+<br><br>
+<<goto "Huh?">>
+<<stop>>
+<</if>>
+<</repeat>>
+<</nobr>>
+
+
+
+:: Answer 3 {"position":"1050,7000","size":"100,100"}
+<<nobr>>
+You type an answer onto the screen.
+<br><br>
+A(n) <<textbox "$answer3" "">>
+<br><br>
+[[Check your answer|Check3]]
+<br><br>
+[[Read the riddle again|Riddle]]
+<<repeat 1s>>
+<<set $seconds = $seconds - 1>>
+<<if $seconds == 0>>
+<br><br>
+<<goto "Huh?">>
+<<stop>>
+<</if>>
+<</repeat>>
+<</nobr>>
+
+
+
+:: Ask for help {"position":"700,250","size":"100,100"}
+You ask Lyhale to help you. 
+<font color="#fcba03">
+“Of course, traveller. With what, exactly, do you need my help?”
+</font>
+[[Where am I?|Where]]
+
+[[How do I return home?|Objective]]
+
+
+
+:: Beer [add-thing] {"position":"700,850","size":"100,100"}
+You ask for a beer, and Lyhale nods. It gives you a glass of beer; the colour is golden and appetizing, with some foam on top. <<nobr>>
+<<set $box.push($glassofbeer)>>
+<</nobr>>
+
+[[Drink it|Drunk]]
+
+[[Ask for a glass of water|Glass of water]]
+
+[[Rest for a while|Rest]]
+
+[[Talk with Lyhale|Chat]]
+<<if $ending == true>>
+[[Return home|Ending]]
+<</if>>
+[[Go back|Main room]]
+
+
+
+:: Beg for mercy [add-thing] {"position":"1350,6100","size":"100,100"}
+<<nobr>>
+The dragon's mouth starts leaking smoke as if charging a fire shot directed towards you. In a panic and not knowing what else to do, you start begging the dragon to let you go; you promise you won't ever return and that you haven't taken anything and only want to return to Lyhale with his master doorknob. You close your eyes shut, expecting the worst, but to your surprise, the fire never arrives. After a few seconds, you peek and see the dragon glancing at you as if confused by your words.
+<br><br>
+<font color="#a4d6fc">
+"Lyhale? Are you acquaintances with that robot?"
+</font> 
+<br><br>
+You nod your head quickly.
+<br><br>
+<font color="#a4d6fc">
+"I see. I suppose that does change things. And you say you are helping it by bringing back that... special doorknob?"
+</font> 
+<br><br>
+You nod once again. You don't know what will happen next, but given that you aren't dead right now, you figure this is a good change of pace. The dragon folds its wings again, pondering what to do next. Eventually, it speaks. 
+<br><br>
+<font color="#a4d6fc">
+"...Very well. I have made up my mind. Lyhale and I have known each other for millennia, and not once had I not received its aid when needed. As such, I suppose you are free to take whatever you please from my treasure chamber as long as it helps the robot. Is that understood?"
+</font> 
+<br><br>
+You sigh in relief as the dragon speaks, feeling like a huge burden has been lifted from your shoulders, and thank the dragon for its mercy.
+<br><br>
+<font color="#a4d6fc">
+"I must warn you, however. I do not have access to that special doorknob you speak of. The only one I own is this golden one. Would that be of help at all?"
+</font> 
+<br><br>
+You nod, telling the dragon that any doorknob that leads you to a new room can be of help. The beast lowers its head into the pile of gold and treasures, sinking part of its jaws inside. After a few seconds, it rises once more, but holding a doorknob now. It lets go of it, and it falls on the ground in front of you. You take it, wiping away some of the dragon's saliva from it, and place it inside your box. 
+<<set $box.push($goldendk)>>
+<br><br>
+<font color="#a4d6fc">
+"Now, if that is all, <b>leave</b>. I am expecting a visit and do not wish for you to be here when he arrives. Lyhale might be a common friend of ours, but that does not mean I will tolerate your presence for longer than needed."
+</font> 
+<br><br>
+The dragon growls and returns to its resting position, yet with one eye open, glaring at you. You figure maybe staying and angering him further wouldn't be the best of ideas.
+<br><br>
+[[Talk with the dragon|Talk Dragon]]
+<br><br>
+[[Get out|Exit lair]]
+<</nobr>>
+
+
+:: Bridge {"position":"900,6100","size":"100,100"}
+<<nobr>>
+<<if $beenbridge == false>>
+<<set $beenbridge = true>>
+You step onto the bridge, your heart beating slightly faster than usual as your foot touches the first wooden panel. But thankfully, nothing happens. You continue walking, soon speeding up your pace as you walk more confidently. The wood doesn't even creak underneath you, which you take as a good sign. You keep going, soon enough, finding yourself on the other side of the abyss. Now, you stand face to face with the narrow path you saw earlier.
+<br><br>
+As you get closer, the torches on both sides of the path's entrance light up immediately as if welcoming you.
+<<else>>
+You soon go through the bridge, reaching the other end quickly. You still don't trust the bridge fully, but your pace is faster and less careful than when you first walked on it. 
+<</if>>
+<br><br>
+[[Keep going|Dragon's lair]]
+<br><br>
+[[Go back|Cave room]]
+<</nobr>>
+
+
+
+:: Cave room {"position":"700,5650","size":"100,100"}
+<<nobr>>
+<<if $light == false>>
+<<if $beentocavedark == false>>
+You step through the door, unsure of what you'll face next. Yet, for better or for worse, as you enter the room, you find yourself surrounded by darkness. You look around... Or try to. But there is no light anywhere; not even the one coming from behind the door seems to iluminate the area. You could poke around and try to learn about the environment, but, then again, that could prove to be dangerous. Maybe you shouldn't move much unless you find a way to light up the room. 
+<br><br>
+[[Poke around|Fuck around n find out]]
+<<set $beentocavedark = true>>
+<<set $currentmission = "third">>
+<<set _index1 = $box.indexOfObject($branch)>>
+<<set _index2 = $box.indexOfObject($flint)>>
+<<if (_index1 >= 0) and (_index2 >= 0)>>
+<br><br>
+[[Make a torch|Light up]]
+<</if>>
+<<set $currentdoor = "caveroomdark">>
+<<else>>
+You find yourself in the dark room, still without light to aid you. It would be smart to get something to light up the room before doing anything, but it's up to you.
+<br><br>
+[[Poke around|Fuck around n find out]]
+<<set _index1 = $box.indexOfObject($branch)>>
+<<set _index2 = $box.indexOfObject($flint)>>
+<<if (_index1 >= 0) and (_index2 >= 0)>>
+<br><br>
+[[Make a torch|Light up]]
+<</if>>
+<<set $currentdoor = "caveroomdark">>
+<</if>>
+<<set $beentocave = true>>
+<<else>>
+<<if $bridge == false>>
+You stand inside the cave, now lit by the torch's fire. Before you, the ground stops, and the [[abyss|Abyss]] starts, an infinite descent into the darkness, or so you guess, since you can't reach to see the bottom. To your left, the [[painted wall|Wall]] illuminated thanks to the light.
+<<set $currentdoor = "caveroomlight">>
+<<else>>
+<<if $seenbridge == false>>
+<<set $seenbridge = true>>
+You reenter the cave, now lit up by the torch's light. To your surprise, a long, sturdy-looking [[bridge|Bridge]] is before you. It goes from your end of the cave to the opposite one across the abyss. To your left, the [[painted wall|Wall]] is now readable thanks to the light, yet it's probably useless now that you have raised the bridge.
+<<else>>
+You reenter the cave, now lit up by the torch's light. Before you, the [[bridge|Bridge]] starts crossing the abyss. To your left, the [[painted wall|Wall]] is now readable thanks to the light, yet it's probably useless now that you have raised the bridge.
+<</if>>
+<<set $currentdoor = "caveroomlight">>
+<</if>>
+<</if>>
+<br><br>
+[[Go back|Main door]]
+<</nobr>>
+
+
+:: Chat {"position":"700,1000","size":"100,100"}
+<<nobr>>
+You ask Lyhale if he'd like to chat with you. Lyhale gives you a small smile.
+<br><br>
+<font color="#fcba03">
+“Of course, traveller. What would you like to talk about?”
+</font>
+<br><br>
+[[How old are you?|Age]]
+<br><br>
+[[How are you doing?|Polite]]
+<br><br>
+[[How does the door work?|How]]
+<br><br>
+[[Ask for help|Help]]
+<br><br>
+[[Go back|Lyhale]]
+<</nobr>>
+
+
+
+:: Check1 {"position":"1200,6700","size":"100,100"}
+<<nobr>>
+<<if $answer1 == "map">>
+<<set $riddle += 1>>
+The screen turns green, and a "bing" noise sounds. Then, a robotic voice sounds around the hallway.
+<br><br>
+<font color="#9761ed">
+"First layer of traps: Deactivated."
+</font>
+<br><br>
+It's a good thing you checked the screen before doing anything, then. Yet, the screen changes quickly, now displaying another question. The voice did mention the "first" layer of traps, so could that mean that maybe there are more? You aren't sure, but maybe just to play it safe, you should see what the screen says now.
+<br><br>
+[[Read the screen|Riddle]]
+<<else>>
+The screen turns red, and a "buzz" noise sounds around the hallway. It seems like your answer was wrong. Maybe you should read the riddle once more.
+<br><br>
+[[Read the riddle again|Riddle]]
+<</if>>
+<br><br>
+[[Go back|Final room]]
+<<repeat 1s>>
+<<set $seconds = $seconds - 1>>
+<<if $seconds == 0>>
+<br><br>
+<<goto "Huh?">>
+<<stop>>
+<</if>>
+<</repeat>>
+<</nobr>>
+
+
+
+:: Check2 {"position":"1200,6850","size":"100,100"}
+<<nobr>>
+<<if $answer2 == "river">>
+<<set $riddle += 1>>
+The screen turns green, and a "bing" noise sounds. Then, the robotic voice talks once again.
+<br><br>
+<font color="#9761ed">
+"Second layer of traps: Deactivated."
+</font>
+<br><br>
+It's a good thing you checked the screen before doing anything, then. Yet, the screen changes quickly, now displaying another question. It seems like there are more riddles to solve.
+<br><br>
+[[Read the screen|Riddle]]
+<<else>>
+The screen turns red, and a "buzz" noise sounds around the hallway. It seems like your answer was wrong. Maybe you should read the riddle once more?
+<br><br>
+[[Read the riddle again|Riddle]]
+<</if>>
+<br><br>
+[[Go back|Final room]]
+<<repeat 1s>>
+<<set $seconds = $seconds - 1>>
+<<if $seconds == 0>>
+<br><br>
+<<goto "Huh?">>
+<<stop>>
+<</if>>
+<</repeat>>
+<</nobr>>
+
+
+
+:: Check3 {"position":"1200,7000","size":"100,100"}
+<<nobr>>
+<<if $answer3 == "riddle">>
+<<set $riddle += 1>>
+<<set $solved = true>>
+The screen turns green, and a "bing" noise sounds. Then, the robotic voice talks once again.
+<br><br>
+<font color="#9761ed">
+"Last layer of traps: Deactivated."
+</font>
+<br><br>
+As you hear that, you sigh in relief. This means it's safe to go now, right...?
+<br><br>
+[[Go for it|Aha no]]
+<<else>>
+The screen turns red, and a "buzz" noise sounds around the hallway. It seems like your answer was wrong. Maybe you should read the riddle once more?
+<br><br>
+[[Read the riddle again|Riddle]]
+<</if>>
+<br><br>
+[[Go back|Final room]]
+<<repeat 1s>>
+<<set $seconds = $seconds - 1>>
+<<if $seconds == 0>>
+<br><br>
+<<goto "Huh?">>
+<<stop>>
+<</if>>
+<</repeat>>
+<</nobr>>
+
+
+
+:: Checkend {"position":"1200,7150","size":"100,100"}
+<<nobr>>
+<<if ($answer4 == "riddle") and ($answer5 == "river") and ($answer6 == "map")>>
+The screen turns green for a few seconds and displays the text "Traps deactivated."
+<br><br>
+Yet the timer continues ticking as the voice updates you every second, and the screen turns red again, now displaying the seconds left along with the voice.
+<br><br>
+[[Rush towards the door|Escape]]
+<<else>>
+The screen turns red, and a "buzz" noise sounds around the hallway. It seems like your answer was wrong. Maybe you should reread the text, <i>quickly</i>.
+<br><br>
+[[Read the screen|Type]]
+<</if>>
+<br><br>
+<font color="#9761ed">
+<b>Countdown: <span id="countdown">$seconds seconds remaining</span>.</b>
+</font>
+<<silently>>
+<<repeat 1s>>
+<<set $seconds to $seconds - 1>>
+<<if $seconds > 0>>
+<<replace "#countdown">>$seconds seconds remaining<</replace>>
+<<else>>
+<<replace "#countdown">> <<goto "Time out">> <</replace>>
+<<stop>>
+<</if>>
+<</repeat>>
+<</silently>>
+<</nobr>>
+
+
+
+:: Climb [add-thing Ending] {"position":"1050,2350","size":"100,100"}
+<<nobr>> 
+<<if ($climbedtree == false) and ($drunk == 0)>> 
+Putting in some effort, you climb on top of the tree. You find a tree branch strong enough to hold your weight, and after careful movements, you sit there. It's colder than you expected, your hands now red from the climbing and the clod, but the views are far better from up there too. You can see how the tundra you are in extends into the horizon, and the lake doesn't look any smaller. You also notice the clouds look greyish, probably a sign of a storm happening soon. Maybe it would be better to avoid staying for longer than needed. <br><br>
+Besides the sights, you also notice something tangled between green leaves from a branch above you. Huh. After struggling to pull from it without losing your balance, you manage to get the thing. It's... a green coat, thankfully not too messed up from being tangled in the tree branches. You decide to put it inside the box. 
+<br><br>
+Before you climb down, you notice that the branch you are sitting on is... extensively long. In fact, you see that the end of the branch is right above the small island with the doorknob! Of course, you immediately try to move and get there, but you soon realize the branch isn't strong enough to hold your weight as you move further from the trunk. Still, you think it might be worth remembering.  
+<br><br>
+[[Climb down|TreeP]]
+<<set $box.push($coat)>> 
+<<set $climbedtree = true>>
+<<elseif ($climbedtree == true) and ($drunk == 0)>> 
+Besides the good sights, there is little to do up here. 
+<br><br>
+[[Climb down|TreeP]]
+<</if>>
+<<if $drunk >= 1>> 
+You try to climb the tree, yet your motor skills aren't the best at the moment. You manage to reach a pretty nice altitude, given the alcohol in your blood, but you eventually slip and fall backwards. The grass is soft but not soft enough to stop your landing safely. 
+<br> <br>
+Maybe don't climb trees while drunk next time. 
+<br> <br>
+Ending: 6
+<</if>>
+<</nobr>>
+
+
+:: Completion ending [Ending] {"position":"850,1900","size":"100,100"}
+You shut your eyes close as you walk through the door, a white, blinding light hitting you directly. After a few seconds, you hear the door close behind you, and the light dims. Slowly, you open your eyes once again. You find yourself inside your room, lying on bed. You look around, and sure enough, everything is there as it was before you dozed off to sleep. 
+
+You scratch your head. Had it all been a dream?
+
+You reach for your phone inside your pocket, but instead find a small box. Just like the one Lyhale had given you. You open it, and to your amazement, everything is still there. The coat, the doorknobs, the seeds... Your smile widens, and you put the small box close to your chest. You aren't quite sure what happened, how, or why. But you know something for sure: you won't forget it any time soon.
+
+With newfound energies, you rush to your garden and quickly put together a small pot with some dirt, and plant the seed Lyhale gave you. You aren't quite sure how to take care of it, Lyhale didn't really give you any instructions or wrote anything down for you; but you will try your best to make sure it grows healthy and quickly. After all, you can't wait to see your friend again, hopefully next time in a different context.
+
+Ending: 14
+
+
+:: Cozy {"position":"900,2950","size":"100,100"}
+You take out the jacket from the box and put it on. It fits you like a glove, something you are very thankful for as you zip it up. You immediately start feeling cosy and warm, and now the cold air only bothers you a bit, but not enough to stop you from continuing. 
+
+You look around some more and notice some imposing [[trees|TreeF]] to your side, as well as a [[frozen lake|Frozen lake]] in front of you.
+
+[[Go back|Main door]]
+
+
+
+:: Dk please {"position":"1050,3550","size":"100,100"}
+You ask the parrot about the doorknob, and it answers with its squawky voice. 
+<font color="#13cf4e">
+"Hey, watch it! I ain't just a bird, I'm a parrot! Ya' wouldn't like it if I called ya' monkey, would ya'?"
+</font>
+The parrot makes a noise close to a groan, and looks at you up and down, probably not too kindly.
+<font color="#13cf4e">
+"The name's Seashells, so don't go around calling me "bird", ya' hear?"
+</font>
+You apologise to Seashells and ask again about the doorknob on the nest.
+<font color="#13cf4e">
+"Wha, that shiny thing? Someone dropped it a while ago, so I picked it up. Pretty, ain't it?"
+</font>
+You ask Seashells very politely if you could have it. 
+<font color="#13cf4e">
+"You? Why would I give it to ya'? It's <i>my</i> pretty thing, go find yourself one of your own!"
+</font>
+Seashells sits on top of the doorknob as if to protect it. You sigh and pinch the bridge of your nose. Something tells you getting this thing won't be too easy. 
+
+[[Try to convince Seashells|Haggle]]
+
+
+:: Dragon {"position":"1200,6100","size":"100,100"}
+<<nobr>>
+As you enter the room, you find yourself face to face with a massive creature, taking up the space in the enormous room. A dragon, sleeping on top of a pile of golden coins and treasures. You quickly figure out that the dragon's snoring caused the rumbling. You stare at the creature for a few seconds, unable to muster a word or thought. Scales of a beautiful white colour cover the dragon, its vast wings folded neatly at its sides. Its head is decorated with curved horns ending on sharp points, giving it a more majestic look. And its long tail falls as waterfalls from the top of the pile to the ground... 
+<br><br>
+...Making you trip with it. In case the dragon wouldn't have noticed that, you also make quite a lot of noise as you fall into a smaller pile of gold. The sound and you tripping on its tail are enough to wake up the beast. The dragon lets out a yawn, which only makes you feel even more scared when you see just how sharp and big his teeth are. The dragon looks around, trying to see what caused the noise, and despite your best efforts to hide in the gold pile, it finds you easily. The dragon frowns, and you fear the worst.
+<br><br>
+<font color="#a4d6fc">
+"Hm, you are not Hoid... Who dares disturb my slumber?"
+</font> 
+<br><br>
+The dragon's voice echoes through the cave, making the ground shake softly. You try to explain yourself without stumbling upon your words, telling the dragon how you are only looking for a doorknob to take you back home.
+<br><br>
+The dragon seems unimpressed by your answer and scans you up and down with its cold, dark, green eyes.
+<br><br>
+<font color="#a4d6fc">
+"And why would I care about that? Your problems are your own and not mine to solve. I fail to see why this situation involves me or why you would feel the right to sneak into my lair and <i>steal</i> my treasures."
+</font> 
+<br><br>
+Your heart sinks at the dragon's words, and your blood freezes when the beast moves. It unfolds its majestic wings, now appearing even larger, if that was even possible, and standing on top of his pile of gold instead of resting on it. 
+<br><br>
+<font color="#a4d6fc">
+"You are an intruder whose crimes won't go unpunished."
+</font> 
+<br><br>
+[[Beg for mercy]]
+<</nobr>>
+
+
+:: Dragon's lair {"position":"1050,6100","size":"100,100"}
+<<nobr>>
+<<if $beenlair == false>>
+As you walk down the path, torches on both sides lit up suddenly. The path continues but eventually turns into stairs going downwards. You doubt for a second, unsure if you should continue going deeper into this cave you don't know. But you figure that you might as well continue since you are already here.
+<br><br>
+You take a deep breath and go down the stairs. Some more torches lit up as you come down, and eventually, you are met with an open wooden door, a deep rumbling coming from whatever room is behind it. You move slowly and carefully, trying your best not to be seen but also letting your curiosity lead you inside.
+<br><br>
+[[Go inside|Dragon]]
+<<else>>
+The door to the dragon's lair is closed now. You hear some soft music coming from inside and some soft mumbles as well. The dragon is probably enjoying his privacy with that guest it mentioned, and you don't want to see what happens when you disturb a dragon too much.
+<</if>>
+<</nobr>>
+
+[[Go back|Cave room]]
+
+
+:: Drunk [lose-thing Ending] {"position":"850,850","size":"100,100"}
+You take a sip out of the glass of beer. It's surprisingly tasty, yet not too strong. You like it so much you drink it in one go. <<nobr>>
+<<set $drunk = $drunk + 1>> 
+<<set _index = $box.indexOfObject($glassofbeer)>>
+<<set $box.deleteAt(_index)>>
+<</nobr>>
+<<if $drunk == 1>>
+Not too long after, you start feeling slightly dizzy. Probably because of the drink, you figure.
+
+[[Ask for another beer|Beer]]
+
+[[Ask for a glass of water|Glass of water]]
+
+[[Rest for a while|Rest]]
+
+[[Talk with Lyhale|Chat]]
+
+[[Go back|Main room]]
+<<elseif $drunk == 2>>
+The dizziness gets slightly worse, and things around you start to spin. You also feel warmer. Walking is a bit of a struggle now, but you manage.
+
+[[Ask for another beer|Beer]]
+
+[[Ask for a glass of water|Glass of water]]
+
+[[Rest for a while|Rest]]
+
+[[Talk with Lyhale|Chat]]
+
+[[Go back|Main room]]
+<<elseif $drunk == 3>>
+The dizziness gets even worse. Everything around you spins heavily, and your head seems unable to produce any thoughts at all. As soon as you try to move, you stumble upon your feet and fall to the ground, hitting your head against the counter severely.
+
+Please drink responsibly next time.
+
+Ending: 3
+<</if>>
+
+
+
+:: Ending [add-thing] {"position":"700,1750","size":"100,100"}
+<<nobr>>
+<<set _index1 = $box.indexOfObject($carob)>> 
+<<set _index2 = $box.indexOfObject($kapok)>> 
+<<set _index3 = $box.indexOfObject($nut)>> 
+<<set _index4 = $box.indexOfObject($dandelion)>> 
+You tell Lyhale that you want to go back home. The robot nods softly and fetches the master doorknob for you, but it seems to hesitate and doesn't hand it to you. 
+<br><br>
+<font color="#fcba03">
+"Very well, traveller. If you don't mind, I would like to do the honours."
+</font>
+<br><br>
+Lyhale leaves his counter and walks to the door with you.
+<<if (_index1 >= 0) and (_index2 >= 0) and (_index3 >= 0) and (_index4 >= 0) and ($asshole < 5)>>
+Your metallic friend turns around and gives you what you interpret as a bittersweet smile. 
+<br><br>
+<font color="#fcba03">
+"I must say, I hadn't expected to feel sad to see you leave, yet it pains me to think this is goodbye. Having you here has been a pleasure, and I wanted to give you a small gift before you depart."
+</font>
+<br><br>
+Lyhale reaches for something inside its apron's pocket and hands it to you. You look at it and smile. It's a small bag with a tiny seed that looks like a sunflower's inside. The bag is labelled "Room", and you ask Lyhale what it is. The robot smiles.
+<br><br>
+<font color="#fcba03">
+"It is a seed that, if taken care of properly, will grow a doorknob to allow you to return here. I do not usually give these to customers, but, I have decided you are worthy of this gift. You have a good soul, my friend, and I hope we will meet again soon."
+</font>
+<<set $box.push($roomseed)>>
+<br><br>
+Lyhale hugs you tightly with its four arms, and while the sudden embrace surprises you, you hug your friend back while thanking him for everything. Then, you put your hand on the doorknob and give one last smile to the robot. Lyhale nods softly, returning the smile.
+<br><br>
+<font color="#fcba03">
+"Until next time, traveller."
+</font>
+<br><br>
+[[Go home|Completion ending]]
+<<elseif $asshole < 5>>
+Your metallic friend turns around and gives you what you interpret as a bittersweet smile. 
+<br><br>
+<font color="#fcba03">
+"I must say, I hadn't expected to feel sad to see you leave, but I guess this is what must be done. You need to return home, after all."
+</font>
+<br><br>
+Lyhale sighs softly and offers you one of his hands for you to shake.
+<br><br>
+<font color="#fcba03">
+"It has been a pleasure meeting you, traveller."
+</font>
+<br><br>
+You shake Lyhale's hand and thank him for his help. Then, you put your hand on the doorknob and give one last smile to the robot. Lyhale nods softly.
+<br><br>
+<font color="#fcba03">
+"Farewell, traveller."
+</font>
+<br><br>
+[[Go home|Regular ending]]
+<<elseif $asshole >= 5>>
+Your metallic friend turns around and gives you a somewhat tired expression. 
+<br><br>
+<font color="#fcba03">
+"I must say, I have served many different kinds of creatures in my time and many difficult clients. Yet you have proved to be just as rude as my worst customers. I do hope our paths never cross again. Oh, and let me grab that. You do not deserve to keep it with you."
+</font>
+<<set $hasbox = false>>
+<br><br>
+Lyhale points at the door, expecting you to leave immediately. You sigh, knowing the robot is right. Perhaps you have been slightly selfish, and you know you haven't been the perfect guest. At least this nightmare is over. You put your hand on the doorknob and don't look back when Lyhale talks again.
+<br><br>
+<font color="#fcba03">
+"Please, do not return, traveller."
+</font>
+<br><br>
+[[Go home|Regular ending]]
+<</if>>
+<</nobr>>
+
+
+
+:: Escape [lose-thing] {"position":"1350,7150","size":"100,100"}
+<<nobr>>
+<<set $ending == true>>
+<<set $currentmission = "nothing">>
+<<set _index1 = $box.indexOfObject($mdk)>>
+<<set $box.deleteAt(_index1)>>
+You leave the room, panting for air as you slam the door behind you. Lyhale looks at you, tilting its head a bit as if confused.
+<br><br>
+<font color="#fcba03">
+"Oh, traveller. What's the matter?"
+</font>
+<br><br>
+As you try to regain your breath, you show Lyhale the new doorknob. The robot puts down the glasses it was cleaning and comes out of the bar counter to go with you. It grabs the doorknob from you and examines it, turning it around in between its four hands.
+<br><br>
+<font color="#fcba03">
+"You found it, traveller! You did it! Oh, this is priceless, my dear friend... I thought I had lost it forever. You have my eternal gratitude, traveller. I will never be able to thank you enough. Now, if you are ready, we can take you home right away. But, if you have any unfinished business, you can take your time. Just tell me when you want to leave, traveller. You know where to find me."
+</font>
+<br><br>
+Lyhale returns behind the counter with the master doorknob, admiring it between his hands before placing it back down and resuming his cleaning.
+<br><br>
+It looks like this is it. You can return home now.
+<br><br>
+[[Finally|Main room]]
+<<set $ending = true>>
+<</nobr>>
+
+
+:: Exit lair {"position":"1500,6250","size":"100,100"}
+<<nobr>>
+You walk out of the dragon's lair, worried about what might happen if you test its patience too much. As you exit and go back to the other side of the bridge, you hear the door of the dragon's lair closing behind you with a not-so-subtle slam. It's pretty clear to you that returning there wouldn't be such a good idea.
+<br><br>
+<<set $currentmission = "nothing">>
+<<set $beenlair = true>>
+[[Great|Cave room]] 
+<</nobr>>
+
+
+
+:: Fill b3 {"position":"1200,4450","size":"100,100"}
+<<nobr>>
+You open the valve and fill the small bottle to the top.
+<<set $b3 = 3>>
+<br><br>
+<b>Small bottle holds: <<print $b3>> liters.</b>
+<br><br>
+<b>Big bottle holds: <<print $b5>> liters.</b>
+<br><br>
+[[Fill the small bottle with the spigot's water|Fill b3]]
+<br><br>
+[[Fill the big bottle with the spigot's water|Fill b5]]
+<br><br>
+[[Pour the small bottle's water into the big one|Pour b3-b5]]
+<br><br>
+[[Pour the big bottle's water into the small one|Pour b5-b3]]
+<br><br>
+[[Pour out the water from the small bottle|Reset b3]]
+<br><br>
+[[Pour out the water from the big bottle|Reset b5]]
+<br><br>
+<<if $b3 == 4>>
+[[Place the small bottle on the center|Win]]
+<br><br>
+<<elseif $b5 == 4>>
+[[Place the big bottle on the center|Win]]
+<br><br>
+<</if>>
+[[Go back|Seashells]]
+<</nobr>>
+
+
+:: Fill b5 {"position":"1200,4300","size":"100,100"}
+<<nobr>>
+You open the valve and fill the big bottle to the top.
+<<set $b5 = 5>>
+<br><br>
+<b>Small bottle holds: <<print $b3>> liters.</b>
+<br><br>
+<b>Big bottle holds: <<print $b5>> liters.</b>
+<br><br>
+[[Fill the small bottle with the spigot's water|Fill b3]]
+<br><br>
+[[Fill the big bottle with the spigot's water|Fill b5]]
+<br><br>
+[[Pour the small bottle's water into the big one|Pour b3-b5]]
+<br><br>
+[[Pour the big bottle's water into the small one|Pour b5-b3]]
+<br><br>
+[[Pour out the water from the small bottle|Reset b3]]
+<br><br>
+[[Pour out the water from the big bottle|Reset b5]]
+<br><br>
+<<if $b3 == 4>>
+[[Place the small bottle on the center|Win]]
+<br><br>
+<<elseif $b5 == 4>>
+[[Place the big bottle on the center|Win]]
+<br><br>
+<</if>>
+[[Go back|Seashells]]
+<</nobr>>
+
+
+:: Final room {"position":"700,6550","size":"100,100"}
+<<nobr>>
+<<if $ending == true>> 
+You approach the door, intending to enter the final room once more, but then you remember how you almost got stuck for life and the slightly threatening robot voice counting down the seconds to your doom. On second thought, you decide maybe that room is best left forgotten.
+<br><br>
+[[Go back|Main room]]
+<<else>>
+<<if $beentofinal == false>>
+<<set $seconds = 30>>
+<<set $beentofinal = true>>
+<<set _index = $box.indexOfObject($goldendk)>>
+<<set $box[_index].description = "It is covered in gold, with a gemstone of matching colour and material. It takes you to a hallway.">>
+You enter the room, and a tingle of excitement and anticipation travels through your body as you do so. That feeling washes off immediately as you hear the door close and <i>lock</i> behind you. You turn around and struggle with the doorknob but can't open it. Well, it seems like you are stuck here for now. 
+<br><br>
+You inspect the room you are in, expecting another ample space like the ones you've been before. But to your surprise, you find yourself inside a hallway. The walls around you are decorated by wallpaper with a pattern of flowers, and there is just one frame hanging without a painting or anything inside. Just... Black. The floor has shiny tiles that match the wallpaper, spotless. The hallway is long and narrow, and at first glance, it seems to be empty as well. That is until you notice something at the end of the hallway. A pedestal rises elegantly at the end, detailed in gold, making it shine. And on top of it lies a doorknob.
+<br><br>
+As you squint, you notice that the doorknob differs from the others you own. This one has no gem on it. You wonder if that means it is the master doorknob, the one Lyhale told you would take you home. 
+<br><br>
+[[Go towards the doorknob|Aha no]]
+<br><br>
+[[Examine the room more|Riddle]]
+<<else>>
+You stand before the still-closed and locked door. As much as you try, it doesn't bulge. 
+<br><br>
+[[Go towards the doorknob|Aha no]]
+<br><br>
+[[Go to the screen|Riddle]]
+<</if>>
+<<repeat 1s>>
+<<set $seconds = $seconds - 1>>
+<<if $seconds == 0>>
+<br><br>
+<<goto "Huh?">>
+<<stop>>
+<</if>>
+<</repeat>>
+<<set $currentdoor = "finalroom">>
+<</if>>
+<</nobr>>
+
+
+:: Fireplace {"position":"500,100","size":"100,100"}
+You approach the fireplace, feeling warm and cozy. The sound of the fire helps you calm down, and you put your hands in front of you to warm them up. It feels nice, just chilling like that. Yet, a part of you feels... empty, as if there was something or someone you missed. A stuffed animal you are used to cuddle with yet can't remember, perhaps? A loved one? Maybe a pet? You aren't sure. In fact, any effort to think about anything previous to you reaching this room is useless. Your head is foggy, and you can't seem to recall any memories, no matter how hard you focus. 
+
+You try not to think about it too hard and just enjoy the quietness and warmth that the fireplace offers. <<nobr>>
+<<set _index = $box.indexOfObject($glasswater)>>
+<<if _index >= 0>>
+<br><br>
+[[Put out the fire]]
+<</if>>
+<</nobr>>
+
+[[Go back|Main room]]
+<!-- <<audio fireplace play>> -->
+
+
+
+:: Frozen lake {"position":"1050,3100","size":"100,100"}
+<<nobr>>
+<<if $beenlakefuture == false>>
+<<if $beenlakepast == true>>
+You approach the frozen lake and soon notice an old-looking wooden sign in front of the shore. The wood has some cracks and dents, and the snow and ice cover part of the text, but it's still readable. Behind it, the frozen water extends far and wide, and you barely reach to see the end. If you squint, you can see something around the middle of the lake. It looks like... a small island, or at least a pile of dirt stacked that manages to rise above the water. And in the middle, you see... A doorknob! You frown. This is... heavily similar to the other room, not to say a carbon copy. At least in this case, the water is frozen, and the ice seems strong enough to support your weight, which means it might be safe to walk to the doorknob.
+<<else>>
+You approach the frozen lake and soon notice an old-looking wooden sign in front of the shore. The wood has some cracks and dents, and the snow and ice cover part of the text, but it's still readable. Behind it, the frozen water extends far and wide, and you barely reach to see the end. If you squint, you can see something around the middle of the lake. It looks like... a small island, or at least a pile of dirt stacked that manages to rise above the water. And in the middle, you see... A doorknob! You didn't expect to find one so soon, but you aren't complaining. The lake's water is frozen, and the ice seems strong enough to support your weight, which means it might be safe to walk to the doorknob.
+<</if>>
+<<set $beenlakefuture = true>>
+<<else>>
+You stand before the huge lake; the frozen water reflects your face like a mirror.
+<</if>>
+<</nobr>>
+<<if $drunk >= 1>>
+[[Go towards the small island|Slipped]]
+<<else>>
+[[Go towards the small island|Island]]
+<</if>>
+[[Read the sign|SignF]]
+
+[[Go back|Future room]]
+
+
+:: Fuck around n find out [Ending] {"position":"900,5650","size":"100,100"}
+Ignoring your conscience and absolutely all of your survival instincts, you start walking around, your arms extended before you as you take some careful steps around the dark room. Not long after, you lift your foot to take another step, but when you are about to put it down, you realize too late that there is no more ground. You lose your balance and fall into the darkness for what feels like hours before hitting the harsh, cold, literal rock bottom. 
+
+I can't say I didn't warn you.
+
+Ending: 8
+
+
+:: Future room {"position":"700,2950","size":"100,100"}
+<<nobr>>
+<<if $beentofuture == false>>
+<<set _index = $box.indexOfObject($greydk)>>
+<<set $box[_index].description = "Has an old, worn out moonstone on it. It leads to a cold esplanade with a frozen lake.">>
+<<set _index = $box.indexOfObject($coat)>>
+<<if $beentopast == true>>
+You step through the door and see...
+<br><br>
+...A familiar place. You feel like you are having a deja vu as you look around. You notice snow burying the ground, as well as decorating the tall trees on the sides with a beautiful white. The air is slightly harsh and freezing, and you rub your arms with your arms to stay warm. Still, you know you'll probably start shivering soon if you don't find a more effective way to stay warm, so you decide it's better not to keep going until you find a solution. Sure enough, the [[door|Main door]] is behind you if you want to return.
+<<elseif $beentopast == false>>
+You step through the door and see...
+<br><br>
+...A frozen tundra. You notice snow burying the ground, as well as some decorating the tall trees on the sides with a beautiful white. The air is slightly harsh and freezing, and you rub your arms with your arms to stay warm. Still, you know you'll probably start shivering soon if you don't find a more effective way to stay warm, so you decide it's better not to keep going until you find a solution. Sure enough, the [[door|Main door]] is behind you if you want to return.
+<</if>>
+<<if _index >= 0>>
+<br><br>
+[[Put on the coat|Cozy]]
+<<elseif $drunk == 2>>
+<br> <br>
+Thankfully, the drunkness makes you feel warm enough to power through it. If you were sober, maybe you'd realise this is a bad idea and that the warm feeling you have isn't going to stop you from getting sick, but... You are drunk and decide to power through it. You keep looking around and notice some [[trees|TreeF]] to your side, as well as a [[frozen lake|Frozen lake]] in front of you.
+<</if>>
+<</if>>
+<<if $beentofuture == true>>
+You stand in the snowy tundra, the wind ruthless and harsh. To your side, the [[large trees|TreeF]] rise proudly, and in front of you, the [[frozen lake|Frozen lake]] rests with its icy water. Behind you, the [[door|Main door]] remains closed, waiting for you to use it again.
+<</if>>
+<</nobr>>
+<<set $currentdoor = "futureroom">>
+<<set $beentofuture = true>>
+
+
+:: Give flint [lose-thing add-thing] {"position":"1050,3700","size":"100,100"}
+<<nobr>>
+<<set $giveflint = true>>
+You give Seashells the piece of flint. The parrot examines it as if trying to figure out what it is. You explain to him it's a tool that allows you to make fire. 
+<br><br>
+<font color="#13cf4e">
+"I knew that! I was just checkin' it was the real deal, hmph." 
+<br><br>
+</font>
+<<set _index = $box.indexOfObject($flint)>>
+<<set $box.deleteAt(_index)>>
+Seashells grabs the flint with its claws and flies it to his nest. It looks a bit too proud to admit that he has no clue how to use it, but you decide to save yourself the trouble of having that conversation.
+<<if $giveice == true>>
+<br><br>
+<font color="#13cf4e">
+"Well, I guess ya’ did manage to bring me back the items I had asked for... And I ain't nothing if not a parrot of my word. So here, ya’ can have it."
+</font> 
+<br><br>
+<<if $knowmetal == false>>
+Seashells throws the doorknob from up on the tree with its beak, and on its way down, it hits the trunk and some branches of the tree. But to your surprise, it sounds as if it was hitting metal, not wood. You frown, confused. That... makes no sense.
+<br><br>
+You grab the doorknob from the ground, you catch it before it hits the ground. You try to thank the parrot, but its too busy admiring its new treasures to pay more attention to you. Instead, after putting it in the box, you approach the tree to figure out why it made those noises. 
+<br><br>
+[[Investigate|Shake tree]]
+<<else>>
+Seashells throws with its beak the doorknob from up on the tree, and you manage to catch it before it hits the ground. You try to thank the parrot, but its too busy admiring its new treasures to pay any more attention to you. 
+<br><br>
+You put your new doorknob inside the box, happy you are done dealing with that bird.
+<</if>>
+<<set $box.push($bdk)>>
+<<set $currentmission = "nothing">>
+<</if>>
+<br><br>
+[[Go back|Jungle room]]
+<</nobr>>
+
+
+:: Give ice [lose-thing add-thing] {"position":"1050,3850","size":"100,100"}
+<<nobr>>
+<<set $giveice = true>>
+You offer Seashells the glass with ice. The parrot examines the glass and touches the ice with one of its feathers. It shudders and moves its wing away from it immediately from the cold. 
+<br><br>
+<font color="#13cf4e">
+"Brrr! That is cold alright! I'll gladly take that off your hands and keep it in my nest, thank ya’ very much." 
+<br><br>
+</font>
+<<set _index = $box.indexOfObject($glassice)>>
+<<set $box.deleteAt(_index)>>
+Seashells grabs the whole glass with its claws and flies it up to his nest. It looks quite happy with it.
+<<if $giveflint == true>>
+<br><br>
+<font color="#13cf4e">
+"Well, I guess ya’ did manage to bring me back the items I had asked for... And I ain't nothing if not a parrot of my word. So here, ya’ can have it."
+</font> 
+<br><br>
+<<if $knowmetal == false>>
+Seashells throws the doorknob from up on the tree with its beak, and on its way down, it hits the trunk and some branches of the tree. But to your surprise, it sounds as if it was hitting metal, not wood. You frown, confused. That... makes no sense.
+<br><br>
+You grab the doorknob from the ground, you catch it before it hits the ground. You try to thank the parrot, but its too busy admiring its new treasures to pay more attention to you. Instead, after putting it in the box, you approach the tree to figure out why it made those noises. 
+<br><br>
+[[Investigate|Shake tree]]
+<<else>>
+Seashells throws with its beak the doorknob from up on the tree, and you manage to catch it before it hits the ground. You try to thank the parrot, but its too busy admiring its new treasures to pay any more attention to you. 
+<br><br>
+You put your new doorknob inside the box, happy you are done dealing with that bird.
+<</if>>
+<<set $box.push($bdk)>>
+<<set $currentmission = "nothing">>
+<</if>>
+<br><br>
+[[Go back|Jungle room]]
+<</nobr>>
+
+
+:: Glass of water [add-thing] {"position":"700,700","size":"100,100"}
+You ask for a glass of water, and Lyhale nods. It gives you a glass of fresh water with a smile. <<nobr>>
+<<set $box.push($glasswater)>>
+<</nobr>>
+
+[[Drink it|Hydrate]]
+
+[[Ask for a beer|Beer]]
+
+[[Rest for a while|Rest]]
+
+[[Talk with Lyhale|Chat]]
+<<if $ending == true>>
+[[Return home|Ending]]
+<</if>>
+[[Go back|Main room]]
+
+
+
+:: Haggle {"position":"1200,3550","size":"100,100"}
+You ask Seashells if there's something it might want in exchange for the doorknob. The parrot seems to think about it for a bit and eventually answers.
+<font color="#13cf4e">
+"Well... I guess there are some things I do want... And you seem very eager to get your hands on this thing, so what do ya’ say you run a few errands for me?"
+</font>
+The thought doesn't excite you too much, but you decide it's better just to agree. You nod and ask Seashells what it wants.
+<font color="#13cf4e">
+"It's straightforward, really. I just need something to help me keep my nest cool when the sun hits hard and something to stay warm when it's nighttime. Ya' think ya' can handle it?"
+</font>
+While being an errand boy for a rude bird isn't precisely your passion, you figure you have little to no other choice. You nod, agreeing to the deal. You better get going and find what Seashells wants.
+<<set $metseashells = true>> <<set $currentmission = "second">>
+[[Go back|Jungle room]]
+
+
+:: Help {"position":"850,1450","size":"100,100"}
+<<nobr>>
+You ask Lyhale for help, and the robot nods. You update it on your situation and your current task, and Lyhale rubs its chin with one of its four arms, thinking. 
+<br><br>
+<<if $currentmission == "nothing">>
+<font color="#fcba03">
+“Perhaps you should try out one of those doorknobs of yours. Have you tried all of them? While rare, sometimes some rooms happen to be connected with others, so maybe the actions you do on some will affect the others. Or maybe there is something else you must do to continue.”
+</font>
+<<elseif $currentmission == "first">>
+<font color="#fcba03">
+“I see, I see. So, the doorknob is frozen? Let me tell you, traveller, as much as you try, you won't be able to break that ice. It never breaks, and it never melts. Your only choice is to find a way to prevent the doorknob from getting hit by the snow and the storm, perhaps by having it covered in the past. But I wonder if that is even possible...”
+</font>
+<<elseif $currentmission == "second">>
+<font color="#fcba03">
+“Oh, so you've met that parrot... I'm ashamed to say so, but I don't like Seashell's company too much. So arrogant and... Annoying, yes, I admit it. Still, it is a bird of his word. You have already visited some freezing rooms, have you not? Perhaps they could provide some aid with his request. As for something to keep him warm... Well, I don't have coal around here, but I guess you could find something that might be useful around the fireplace.”
+</font>
+<<elseif $currentmission == "third">>
+<font color="#fcba03">
+“So the room is completely dark, you say? That seems like a problem... If only you had some kind of stick to make a torch or something of the sort, maybe that would solve your problem.”
+</font>
+<<elseif $currentmission == "fourth">>
+<font color="#fcba03">
+“A drawing of levers is your only clue to finding a way to lower the bridge... My, that seems like quite a fun puzzle! Given that you don't see any levers in that cave, perhaps the solution lies elsewhere. The... resident of that cave is an old friend of mine, and I know for a fact it enjoys making others run around helplessly for its own amusement, but also good puzzles. That might be a test to see if you are worthy of continuing. Think outside the box, traveller; don't be afraid of revisiting locations and trying new things. Prove you have what it takes.”
+</font>
+<</if>>
+<br><br>
+[[Ask for a glass of water|Glass of water]]
+<br><br>
+[[Ask for a beer|Beer]]
+<br><br>
+[[Rest for a while|Rest]]
+<br><br>
+[[Talk with Lyhale some more|Chat]]
+<br><br>
+<<if $ending == true>>
+[[Return home|Ending]]
+<br><br>
+<</if>>
+[[Go back|Main room]]
+<</nobr>>
+
+
+:: How {"position":"850,1300","size":"100,100"}
+You ask Lyhale to explain exactly how the door works, but the robot "frowns".
+<font color="#fcba03">
+“I... Do not think I should tell you, traveller. The human mind is fragile and very easy to fracture. You cannot fathom the concept of infinity or nothingness, so you probably wouldn't be able to understand how this place, the box, or that door works. Sorry.”
+</font>
+It was worth a try.
+
+[[Ask for a glass of water|Glass of water]]
+
+[[Ask for a beer|Beer]]
+
+[[Rest for a while|Rest]]
+
+[[Talk with Lyhale some more|Chat]]
+<<if $ending == true>>
+[[Return home|Ending]]
+<</if>>
+[[Go back|Main room]]
+
+
+
+:: Huh? {"position":"900,7450","size":"100,100"}
+You suddenly hear various clicks around the hall. You aren't too sure what those are, but you figure it must mean something.
+
+<<return "Weird">>
+
+
+:: Hydrate [lose-thing] {"position":"850,700","size":"100,100"}
+You drink the glass of water. It isn't too cold, but it's still pretty refreshing. <<nobr>>
+<<set _index = $box.indexOfObject($glasswater)>>
+<<set $box.deleteAt(_index)>>
+<</nobr>>
+
+[[Ask for a beer|Beer]]
+
+[[Ask for a glass of water|Glass of water]]
+
+[[Rest for a while|Rest]]
+
+[[Talk with Lyhale|Chat]]
+
+[[Go back|Main room]]
+
+
+
+:: Interrupt {"position":"700,550","size":"100,100"}
+Talking to a robot is not something you are used to, yet you feel like there is little to no other option. As soon as you speak, the robot looks up at you and ceases its humming, giving you a look you think is meant to be the equivalent of a frown. Which, to be fair, is pretty hard to do without eyebrows or skin at all, like the robot in front of you.
+
+It resumes his cleaning, but without humming anymore. You just stand there, unsure of what to do now.
+<<set $asshole += 1>>
+[[Try to catch its attention yet again|Interrupt2]]
+
+[[Go back|Main room]]
+   <<timed 40s>>
+   
+After a short, awkward silence, it places one of the glasses down behind the counter where you can’t reach to see, and it claps together two of his hands while the other two keep cleaning. It gives you a small, kind smile before speaking:
+   <font color="#fcba03">
+      “Greetings, traveller. My name is Lyhale. How may I assist you today?”
+   </font>
+      Lyhale awaits your answer.
+
+      [[Ask for help]]
+   <</timed>>
+
+
+
+:: Interrupt2 {"position":"850,550","size":"100,100"}
+You open your mouth to speak again, yet the robot "glares" at you once more before you even get to say anything.
+<font color="#fcba03">
+"Can't you see I'm busy? Please, take a seat, but <b>wait</b> until I'm done."
+</font>
+You decide not to push it and let the robot finish its task. Once it is done cleaning one of the glasses, it places it down behind the counter where you can’t seem to see, and it claps together two of his hands while the other two keep cleaning. It clears its throat or at least makes a sound mimicking it. It forces a smile on its face and talks:
+<font color="#fcba03">
+“Greetings, traveller. My name is Lyhale. How may I assist you today?”
+</font>
+Lyhale awaits your answer.
+<<set $metLyhale to true>> <<set $asshole += 1>>
+[[Ask for help]]
+
+
+
+:: Island [add-thing] {"position":"1200,3250","size":"100,100"}
+<<nobr>>
+<<set _index = $box.indexOfObject($greendk)>> 
+<<if _index < 0>>
+<<if ($beenisland == false) and ($bigtree == true)>>
+You walk carefully and slowly to the middle of the lake. You are careful to avoid slipping on the ice or breaking it and falling into the water, but soon enough, you realize that the ice doesn't even crack underneath your weight. 
+You reach the small island soon enough, and the doorknob is just lying there on the ground. It seems like the water and snow missed that isle, so you don't have to worry about, say, the doorknob being frozen in a block of unbreakable and unmeltable ice. 
+<br><br>
+You add the new doorknob to the other things inside the box. 
+<<set $box.push($greendk)>> 
+<<set $currentmission = "nothing">>
+<<set $beenisland = true>> 
+<<elseif ($beenisland == false) and ($bigtree == false)>>
+You walk carefully and slowly to the middle of the lake. You are careful to avoid slipping on the ice or breaking it and falling into the water, but soon enough, you realize that the ice doesn't even crack underneath your weight. 
+You reach the small island soon enough, but you notice a slight problem: The doorknob is trapped in a block of ice. It seems like the water and the snow reached that island, so now you have to figure out how to get it out. If only it could have been covered when the storm hit...
+<<set $currentmission = "first">>
+<<set $beenisland = true>> 
+<br><br>
+[[Try to break the ice|Ouch]]
+<<elseif ($beenisland == true) and ($bigtree == true)>>
+You reach the small island soon enough, and the doorknob is just, lying there on the ground. It seems like the water and the snow missed that isle, so you don't have to worry about, say, the doorknob being frozen in a block of unbreakable and unmeltable ice. 
+<br><br>
+You add the new doorknob to the other things inside the box. 
+<<set $box.push($greendk)>> 
+<<set $currentmission = "nothing">>
+<<elseif ($beenisland == true) and ($bigtree == false)>>
+<<set $currentmission = "first">>
+You reach the small island soon enough, but you notice a slight problem: The doorknob is trapped in a block of ice. It seems like the water and the snow reached that island, so now you have to figure out how to get it out of there. If only it could have been covered when the storm hit...
+<br><br>
+[[Try to break the ice|Ouch]]
+<</if>>
+<<else>>
+There is nothing else to do here; you have already grabbed the doorknob. I guess you could <i>chill</i> here for a bit. 
+<</if>>
+<br><br>
+[[Go back|Future room]]
+<</nobr>>
+
+
+:: Jungle room {"position":"700,3550","size":"100,100"}
+<<nobr>>
+<<if $beentojungle == false>>
+<<set _index = $box.indexOfObject($greendk)>>
+<<set $box[_index].description = "Has a beautiful jade embedded. It leads to a leafy and colourful jungle.">>
+Unlike the other two rooms you've visited, this one doesn't hit you with instant cold or dull, white scenery. Instead, the sight before you is something you haven't seen before. Tall palm trees and other tropical trees rise into the sky, bushes of colourful flowers grow on uneven terrain, and noises of small creatures (or perhaps not so small ones) move around sound from every possible direction. Vines climb the tree trunks of the trees around you, and the thought of mistaking a snake for one makes you think about every step before you take it. You don't feel like getting poisoned right now. 
+<br><br>
+The [[door|Main door]] is almost entirely covered by vines, but you make sure to remember its place. 
+<br><br>
+[[Walk around to the left|Seashells]]
+<br><br>
+[[Walk around to the right|Walk around]]
+<br><br>
+<<set $beentojungle = true>>
+<<else>>
+You stand in a colourful jungle, surrounded by beautiful vegetation. The [[door|Main door]] is camouflaged between vines, but you can see it. <br><br>
+<<if $metseashells == false>>
+To your [[left|Seashells]], there's a more or less clear path that has shorter plants than in other areas, which means you could walk through it. <br><br>
+<<else>>
+To your left, the path leads to [[Seashell's nest|Seashells]].
+<</if>> 
+<<if $walked == false>>
+To your [[right|Walk around]], there seems to be a more or less defined trail with easier access than others you could probably follow.
+<<else>>
+To your [[right|Walk around]], there's the path that goes deeper into the jungle.
+<</if>>
+<</if>>
+<<set $currentdoor = "jungleroom">>
+<</nobr>>
+
+
+
+:: Kill Seashells [add-thing] {"position":"1050,4150","size":"100,100"}
+<<nobr>>
+<<set $alive = false>>
+Tired of the bird's squeaks and demands, you grab a nearby rock from the ground. Your aim isn't the best, but you figure it's hard to miss a colorful and noticeable target like that one. You raise your arm, and throw the rock. It hits the bird on the head, and Seashells falls backwards on his nest.
+<br><br>
+You wait.
+<br><br>
+It does not move, and no sounds come from the nest. 
+<<set _index = $box.indexOfObject($bdk)>>
+<<if _index < 0>>
+But something does fall from up there. It's the doorknob, and on its way down, it hits the trunk and some branches of the tree.
+<<if $knowmetal == false>>
+But to your surprise, it sounds as if it was hitting metal, not wood. You frown, confused. That... makes no sense
+<br><br>
+You grab the doorknob from the ground, seeing a bit of blood staining the black stone that decorates it, and after putting it in the box, you approach the tree to figure out why it made those noises. 
+<br><br>
+[[Investigate|Shake tree]]
+<<else>>
+As it does so, metallic sounds echo through the jungle, now surprisingly quiet.
+<br><br>
+You grab the doorknob from the ground, seeing a bit of blood staining the black stone that decorates it, and put it inside your box with your other belongings.
+<br><br>
+<<set $box.push($bbdk)>>
+[[What's done is done|Jungle room]]
+<</if>>
+<<else>>
+<br><br>
+[[What's done is done|Jungle room]]
+<<set $asshole += 5>>
+<<set $currentmission = "nothing">>
+<</if>>
+<</nobr>>
+
+
+:: LakeP {"position":"900,2650","size":"100,100"}
+<<nobr>>
+<<if ($beenlakepast == false) and ($beenlakefuture == true)>>
+You approach the lake and soon notice a new-looking wooden sign in front of the shore. Weird coincidence; it looks pretty much like the one in the other room... Same spot and all... Huh. Behind it, the water extends far and wide, and you barely reach to see the end. Eventually, you notice something around the middle of the lake. It looks like a small island, or at least a pile of dirt stacked that manages to rise above the water. And in the middle, you see... A doorknob! You didn't expect to find one so soon, but you aren't complaining. Now, you just need a way to reach it. 
+<<elseif ($beenlakepast == false) and ($beenlakefuture == false)>>
+You approach the lake and soon notice a new-looking wooden sign in front of the shore. Behind it, the water extends far and wide, and you barely reach to see the end. Eventually, you notice something around the middle of the lake. It looks like a small island, or at least a pile of dirt stacked that manages to rise above the water. And in the middle, you see... A doorknob! You didn't expect to find one so soon, but you aren't complaining. Now, you just need a way to reach it. 
+<<elseif $beenlakepast == true>>
+You stand before the huge lake; the calm and still water reflects your face like a mirror.
+<</if>>
+<</nobr>>
+<<set $beenlakepast = true>>
+[[Get in the water|Swim]]
+
+[[Read the sign|SignP]]
+
+[[Go back|Past room]]
+
+
+:: Leave the glass of water [lose-thing] {"position":"900,2200","size":"100,100"}
+You leave the glass down on the floor, next to a tree, so it doesn't spill down by the wind or something else. 
+<<set $frozenwater = true>> <<set _index = $box.indexOfObject($glasswater)>> <<set $box.deleteAt(_index)>>
+[[Go back|Past room]]
+
+
+
+:: Left1 {"position":"1050,5200","size":"100,100"}
+You keep walking, and as you do so, it gets harder to see where you are going. The tall, leafy trees that tower above you block most of the rays of the sun that try to illuminate your path. It's not like it's nighttime, but it does prove a bit of a challenge as you trip with a vine or rock and almost fall flat on your face to the ground. 
+
+Before you, the path seems to split. Again. Lucky you.
+
+[[Go left|Left2]]
+
+[[Go right|Right2]]
+
+[[Go back|Jungle room]]
+
+
+
+:: Left2 {"position":"1200,5200","size":"100,100"}
+You keep going, determined to see where you'll end up. You walk and walk, and keep walking... 
+
+...Until you end up finding a door. At first, you feel surprise and excitement rushing through your body and run towards the door to investigate.
+
+It is covered in vines, but they barely bother you as you examine the door. A few scratches, a nice circular shape on the top, a transom... Wait a minute. You open the door and see Lyhale's counter, with the robot cleaning as always. It waves at you. You groan and close the door, realizing this is the one you used to come here in the first place. Somehow, you've looped through the jungle and got precisely where you started.
+
+[[Great|Jungle room]]
+
+
+
+:: Levers {"position":"1050,4300","size":"100,100"}
+<<nobr>>
+<<if $pulllevers == false>>
+You pull from the tree's lower branches, and to your surprise, they don't crack. Instead, they lower, making a "click" noise. You move away slightly as some steam emerges from the tree's trunk. A square section opens, the fake bark splitting from the rest of the trunk as if it were a door. After a few seconds, the steam finally disappears, revealing what is inside. 
+<<if $alive == true>>
+Seashells seems unimpressed and doesn't comment about this, but you couldn't be more amazed.
+<</if>>
+<br><br>
+You look at what the tree has revealed to you. Inside, you find two bottles, each at one side of a small circle slightly higher than the rest of the surface, as if it were some kind of empty pedestal. The smaller one is labelled with "3L", the bigger one is marked with "5L". Behind them, there is a spigot connected to... somewhere. You notice some water drops seem to be leaking from there, and it has a small valve, presumably to turn the water on and off. Right above the spigot, you see something written. Though this time, it isn't in a language you understand. There is, however, a digit you can recognise perfectly. 4. 
+<br><br>
+<<set $pulllevers = true>>
+<<else>>
+The tree trunk opens once again for you, revealing the bottles and spigot as you left them.
+<br><br>
+<</if>>
+<<if $waterwin == false>>
+<b>Small bottle holds: <<print $b3>> liters.</b>
+<br><br>
+<b>Big bottle holds: <<print $b5>> liters.</b>
+<br><br>
+[[Fill the small bottle with the spigot's water|Fill b3]]
+<br><br>
+[[Fill the big bottle with the spigot's water|Fill b5]]
+<br><br>
+[[Pour the small bottle's water into the big one|Pour b3-b5]]
+<br><br>
+[[Pour the big bottle's water into the small one|Pour b5-b3]]
+<br><br>
+[[Pour out the water from the small bottle|Reset b3]]
+<br><br>
+[[Pour out the water from the big bottle|Reset b5]]
+<br><br>
+<<if $b3 == 4>>
+[[Place the small bottle on the center|Win]]
+<br><br>
+<<elseif $b5 == 4>>
+[[Place the big bottle on the center|Win]]
+<br><br>
+<</if>>
+<<else>>
+The puzzle has already been solved, maybe it'd be better not to mess with it now.
+<br><br>
+<</if>>
+[[Go back|Seashells]]
+<</nobr>>
+
+
+
+:: Light up [lose-thing] {"position":"900,5800","size":"100,100"}
+<<nobr>>
+<<set $currentdoor = "caveroomlight">>
+<<set $light = true>>
+<<if $alive == true>>
+<<set _index = $box.indexOfObject($bdk)>>
+<<set $box[_index].description = "It is decorated with a dark piece of obsidian. It leads to an empty cave made out of cold stone.">>
+<<else>>
+<<set _index = $box.indexOfObject($bbdk)>>
+<<set $box[_index].description = "It is decorated with a dark piece of obsidian, stained with some blood. It leads to an empty cave made of cold stone, almost as hard and cold as your heart.">>
+<</if>>
+<<set _index1 = $box.indexOfObject($branch)>>
+<<set $box.deleteAt(_index1)>>
+<<set _index2 = $box.indexOfObject($flint)>>
+<<set $box.deleteAt(_index2)>>
+You bring out of your box your cool branch and a piece of flint. You haven't really used flint before to light up fires, relying primarily on matches or lighters, but you've seen enough people on TV do it or read about it in books. That probably counts as enough experience, right? You hope so.
+<br><br>
+You set the branch down on the ground and kneel next to it. You don't have a stone or rock to hit against the flint, but the whole floor <i>is</i> made out of stone, so you try to make a spark with the flint and the ground. It takes a while, but you eventually manage to make a few sparks and light up the branch, though you end up breaking the flint into such a small piece it ends up being no longer worth holding onto.
+<br><br>
+You blink a few times, your eyes adjusting to the light. You move the improvised torch around, slowly to avoid putting out the flame that took you so long to start and finally see the room you are in.
+<br><br>
+You soon realize you must be inside a cave, as you find yourself surrounded by smooth, cold, stone walls. There are barely any bumps, yet it still has a curved ceiling with irregular turns here and there. You notice an empty sconce on a wall next to you, and you decide to set the branch there so you don't have to carry it around. As soon as you do so, the sconce closes itself around the branch with a swift movement that startles you. Well, it looks like you lost your cool stick. At least now, it serves a purpose outside of just sitting inside your box with the rest of your stuff. 
+<br><br>
+As you mourn the loss of your cool branch, you notice there is something on the wall. It seems like an old inscription or drawing carved in the stone; you aren't sure how old it is, but it looks like it's been there for a while. It's strange, though. It's a drawing of three levers and a person pulling from the three of them. That drawing is followed by an arrow pointing at a bridge, and that's it. You look around but don't see any levers.
+<<set $currentmission = "fourth">>
+<<set $seenwall = true>>
+<br><br>
+<<if $bridge == false>>
+What you do see, however, is the massive cliff in the middle of the cave. You are stunned for a few seconds, wondering how on Earth you had missed that earlier, but eventually, you decide to approach it. You don't get too close to the edge, yet close enough to look down and try to see the bottom. Keyword: try. You squint your eyes, but as much as you try, you cannot even fathom how deep that abyss is. It's too wide to jump to the other side, where the cave seems to narrow into a passage, too perfectly carved not to be man-made.
+<<else>>
+What you do see, however, is the massive cliff in the middle of the cave. You are stunned for a few seconds, wondering how on Earth you had missed that earlier, but eventually, you decide to approach it. There is a bridge going from one end to the other, and to your relief, it doesn't look like one of those old and flimsy wooden bridges swinging in the air and sustained only by a few pieces of string. You get closer to the edge, close enough to look down and try to see the bottom. Keyword: try. You squint your eyes, but as much as you try, you cannot even fathom how deep that abyss is. It's too wide to jump to the other side, where the cave seems to narrow into a passage too perfectly carved not to be man-made.
+<br><br>
+[[Go to the other side|Bridge]]
+<</if>>
+<br><br>
+[[Go back|Cave room]]
+<</nobr>>
+
+
+:: Listen {"position":"300,2500","size":"100,100"}
+<<if $currentdoor == "nothing">>
+You press your ear against the door, trying to catch any sound that might be able to tell you what's behind it, but there's only quietness. 
+<<elseif $currentdoor == "pastroom">>
+You try to listen for some sounds but can only hear a soft breeze hitting the door.
+<<elseif $currentdoor == "futureroom">>
+You kneel to hear out for some noise and hear the hollowing and moaning of strong winds, almost as if warning you against going there.
+<<elseif $currentdoor == "jungleroom">>
+You stay quiet and try to listen to what's going on behind the door. You can reach to hear some leaves being ruffled, as well as some animal noises here and there. Thankfully , there are no roars, so it should be relatively safe... Right?
+<<elseif $currentdoor == "caveroomdark">>
+Despite your best efforts, you can't hear anything behind the door.
+<<elseif $currentdoor == "caveroomlight">>
+Despite your best efforts, you can't hear anything behind the door.
+<<elseif $currentdoor == "finalroom">>
+Despite your best efforts, you can't hear anything behind the door.
+<</if>>
+[[Peek through the transom|Peek]]
+
+[[Try to open the door with brute force|Slam door]]
+<<set _index = $box.indexOfObject($wdk)>> <<if (_index >= 0) or ($beentopast == true)>>
+[[Use white doorknob|Past room]]
+<</if>>  <<set _index = $box.indexOfObject($greydk)>> <<if (_index >= 0) or ($beentofuture == true)>>
+[[Use grey doorknob|Future room]]
+<</if>> <<set _index = $box.indexOfObject($greendk)>> <<if (_index >= 0) or ($beentojungle == true)>>
+[[Use green doorknob|Jungle room]] 
+<</if>> <<set _index1 = $box.indexOfObject($bdk)>> <<set _index2 = $box.indexOfObject($bbdk)>> <<if (_index1 >= 0) or (_index2 >= 0) or ($beentocave == true)>>
+[[Use black doorknob|Cave room]]
+<</if>> <<set _index = $box.indexOfObject($goldendk)>> <<if (_index >= 0) or ($beentofinal == true)>>
+[[Use golden doorknob|Final room]]
+<</if>>
+[[Go back|Main room]]
+
+
+:: Lyhale {"position":"500,250","size":"100,100"}
+<<nobr>>
+<<if $metLyhale == false>>
+You decide to approach the bar counter. The robot cleaning the glasses looks up at you and gives you a subtle nod, soon resuming its task and looking back down. Its humming continues, seemingly undisturbed by your presence. 
+<br><br>
+You notice it is wearing a clean apron, reminding you of the attires in-keepers would wear in so many fantasy settings. But in this case, the apron is the only thing it’s wearing, not that its metallic body needs much cover anyway. 
+<span id="interrupt">
+<br><br>
+[[Try to catch its attention|Interrupt]]
+<br><br>
+[[Go back|Main room]]
+<br><br>
+</span>
+<<timed 30s>>
+<<replace "#interrupt">><</replace>>
+<br><br>
+After a short, awkward silence, it places one of the glasses down behind the counter where you can’t reach to see, and it claps together two of his hands while the other two keep cleaning. It gives you a small, kind smile before speaking:
+<br><br>
+<font color="#fcba03">
+“Greetings, traveller. My name is Lyhale. How may I assist you today?”
+</font>
+<br><br>
+Lyhale awaits your answer.
+<<set $metLyhale to true>>
+<br><br>
+[[Ask for help]]
+<</timed>>
+<<else>>
+Lyhale looks up at you and gives you a subtle nod with a smile.
+<br><br>
+<font color="#fcba03">
+“What can I do for you, traveller?”
+</font> 
+<br><br>
+[[Ask for a glass of water|Glass of water]]
+<br><br>
+[[Ask for a beer|Beer]]
+<br><br>
+[[Rest for a while|Rest]]
+<br><br>
+[[Talk with Lyhale|Chat]]
+<<if $ending == true>>
+<br><br>
+[[Return home|Ending]]
+<</if>>
+<br><br>
+[[Go back|Main room]]
+<</if>>
+<</nobr>>
+
+
+:: Madness1 {"position":"150,2350","size":"100,100"}
+You keep looking at the nothingness. After a while, you begin to feel dizzy. Things around you start to lose meaning. Your thoughts are discounted and lazy, almost like a whisper, but something seems to want to go inside your mind. You have trouble taking your eyes off the sight before you, but then again, do you want to?
+
+[[Keep looking at it|Madness2]]
+
+[[Please go back|Main door]]
+
+
+
+
+:: Madness2 [Ending] {"position":"0,2350","size":"100,100"}
+You keep staring at the nothingness. Your thoughts come to an end, your eyes are locked, and your mind has given up trying to understand the idea of pure <b>nothing</b> expanding before you. Yet somehow, it feels... Oddly welcoming. You don't need to look at anything else; you don't <i>want</i> to look at anything else ever again. Why would you? You've found peace. You open your mind to the nothingness, ready to accept its warm embrace. 
+
+
+<b>And the nothingness delivers.</b>
+
+
+Congratulations: You've gone mad by looking too long at the nothingness and have lost your mind
+
+Ending: 1
+
+
+
+:: Main door {"position":"500,2200","size":"100,100"}
+<<nobr>> 
+<<if $beentomaindoor == false>>
+You walk up to the door. It isn't imposing or strange and has no weird aura that makes you feel like you are in danger. It's just... A door. A regular, wooden door. The only aspects worth noticing are the weird lack of a doorknob, having a hole where the doorknob should be, and the small transom in the shape of half a circle.
+<<set $beentomaindoor = true>>
+<<else>>
+You stand before the door in the room you woke up in.
+<</if>> <</nobr>>
+
+[[Peek through the transom|Peek]]
+
+[[Listen for anything|Listen]]
+
+[[Try to open the door with brute force|Slam door]]
+<<set _index = $box.indexOfObject($wdk)>> <<if (_index >= 0) or ($beentopast == true)>>
+[[Use white doorknob|Past room]]
+<</if>>  <<set _index = $box.indexOfObject($greydk)>> <<if (_index >= 0) or ($beentofuture == true)>>
+[[Use grey doorknob|Future room]]
+<</if>> <<set _index = $box.indexOfObject($greendk)>> <<if (_index >= 0) or ($beentojungle == true)>>
+[[Use green doorknob|Jungle room]] 
+<</if>> <<set _index1 = $box.indexOfObject($bdk)>> <<set _index2 = $box.indexOfObject($bbdk)>> <<if (_index1 >= 0) or (_index2 >= 0) or ($beentocave == true)>>
+[[Use black doorknob|Cave room]]
+<</if>> <<set _index = $box.indexOfObject($goldendk)>> <<if (_index >= 0) or ($beentofinal == true)>>
+[[Use golden doorknob|Final room]]
+<</if>>
+[[Go back|Main room]]
+
+
+:: Main room {"position":"500,2050","size":"100,100"}
+You are at the centre of the room you woke up in. At your left, <<nobr>>
+<<if $metLyhale == true>> 
+[[Lyhale]]
+<<else>>
+[[the robot|Lyhale]]
+<</if>>
+is behind the counter, seemingly busy cleaning an already spotless glass. Next to it, the fire cackles in the [[fireplace|Fireplace]].
+In front of you, [[the door|Main door]].
+<</nobr>>
+
+
+
+:: Objective [add-thing] {"position":"850,250","size":"100,100"}
+You tell Lyhale you want to return home.
+<font color="#fcba03">
+"Very well. It might be a long shot but given that you have no doorknob... Your best bet is to use the master doorknob. It allows you to travel anywhere you wish to; it works like a master key from a hotel. I would lend it to you on any other occasion, but I'm afraid that is no longer possible. You see, it got... misplaced."
+</font>
+Lyhale rubs the back of his neck and looks away, ashamed that it lost the key.
+<font color="#fcba03">
+"Where it is or who grabbed it is beyond my knowledge. But I do have my suspicions... Anyhow, around the time when it mysteriously disappeared, these doorknobs turned up. No one has come to retrieve them, but I kept them in case someone did. Of course, a century has passed since then, so I doubt anyone will ask for them anymore. I guess it would be fine if you kept them. Here, maybe they'll help you and let you find the master key."
+</font>
+You take the two doorknobs Lyhale passes you from under the counter and study them in your hand. They look relatively similar; they are both the kind of doorknob meant to be turned to open a door, and they have a gem in the middle. The first one has a white rock, something similar to a moonstone. Despite having the same kind of stone or gem embedded as the first one, the other one seems... Rougher. It feels slightly colder, and the rock is greyish, not as shiny, with subtle cracks. They aren’t enough to be broken soon, but it makes you wonder how old it is.
+<font color="#fcba03">
+"Oh, and given that you don't have any doorknobs, I take you also lack a box, don't you?"
+</font>
+Before you can even ask what it means by "box", Lyhale crouches and looks for something under the counter. Eventually, the robot raises again with a small wooden box and hands it to you. 
+<font color="#fcba03">
+"There, that should do it. That box will come in handy if you are travelling through the door. It will allow you to save things you find, no matter the size or the weight and access them whenever you need. Usually, travellers bring their own, but given your unusual situation, I'll allow you to use mine. ...Just don't put anything dangerous inside, will you?"
+</font>
+[[Go back|Main room]]
+<<set $hasbox = true>> <<set $box.push($wdk, $greydk)>>
+
+
+
+:: Ouch {"position":"1350,3250","size":"100,100"}
+You try everything you can think of, smashing the ice block with other items, hitting it yourself (which hurts you), trying to warm it up so it slowly melts... But nothing seems to work. You also try to put it inside your box, but the ice is connected to the frozen floor, so you can't even pick it up to grab it. It seems like you'll need to think of something else.
+
+[[Go back|Future room]]
+
+
+
+:: Past room {"position":"700,2200","size":"100,100"}
+<<nobr>>
+<<if $beentopast == false>>
+<<set _index = $box.indexOfObject($wdk)>>
+<<set $box[_index].description = "Has a shiny moonstone on it. It leads to a chilly place with a lake.">>
+<<if $beentofuture == false>>
+You step through the door and find yourself in a completely different place. The door closes behind you, but you are too busy looking around to notice. The location you have entered is chilly, and you immediately regret not bringing a jacket with you. Still, the cold is bearable, so you decide it's safe to keep going.
+You look around, trying to understand where you could be, and take in as many details as possible. The ground is covered by short grass, and you kneel to touch it. The tips are slightly frozen, wet and cold, yet somehow, the flora seems to survive. You look around again and notice some [[large trees|TreeP]] on the sides. You can also see a [[lake|LakeP]] that seems to have no end expanding before you. And sure enough, the [[door|Main door]] is still behind you. ...Which wasn't a given, to be honest.
+<<else>>
+The door closes behind you, but you are too busy looking around to notice. The place you have entered is chilly, and you immediately regret not bringing a jacket. Still, the cold is at least a bit bearable, unlike in the other room you tried before, so you decide it's safe to keep going. Somehow, you feel like this place is familiar as if you were having a deja vu of sorts.
+You look around, trying to understand where you could be, and take in as many details as possible. The ground is covered by short grass, and you kneel to touch it. The tips are slightly frozen, wet and cold, yet somehow, the flora seems to survive. You look around again and notice some [[large trees|TreeP]] on the sides. You can also see a [[lake|LakeP]] that seems to have no end expanding before you. And sure enough, the [[door|Main door]] is still behind you. ...Which wasn't a given after what you've experienced so far.
+<</if>>
+<<set $beentopast = true>>
+<<else>>
+You stand in the middle of the chilly esplanade. To your side, the [[large trees|TreeP]] rise proudly, and in front of you, the [[lake|LakeP]] rests with its calm water. Behind you, the [[door|Main door]].
+<</if>> 
+<<set $currentdoor = "pastroom">>
+<</nobr>>
+<<set _index = $box.indexOfObject($glasswater)>> <<if (_index >= 0) and ($frozenwater == false)>>
+[[Leave the glass of water]]
+<</if>>
+
+
+:: Peek {"position":"300,2350","size":"100,100"}
+<<if $currentdoor == "nothing">>
+You try to peek through the transom, yet you see... Nothing. Not darkness, mind you. <i><b>Nothingness</b></i>. 
+
+[[Stare at the nothingness|Madness1]]
+<<elseif $currentdoor == "pastroom">>
+You peek through the transom and see an esplanade with a lake on the horizon. Just by looking at it you shiver a little with how cold it seems. 
+<<elseif $currentdoor == "futureroom">>
+You peek through the transom, but you only see whiteness darting aggressively in many directions, led by strong winds. Grabbing a coat or something to stay warm before going there would be a good idea.
+<<elseif $currentdoor == "jungleroom">>
+You peek through the transom and see a significant number of tall trees, as well as plants and flowers of vibrant colours. The trees move with a gentle breeze, making the scene not only beautiful but serene... Yet you can't help but wonder what might be lurking in between those tall plants. 
+<<elseif $currentdoor == "caveroomdark">>
+You peek through the transom, yet you can't see anything. It's pure darkness.
+<<elseif $currentdoor == "caveroomlight">>
+You peek through the transom, and now that the room is illuminated, you can see what was before hidden in the dark. A frail-looking wooden bridge swings ever so slightly above a vast abyss. 
+<<elseif $currentdoor == "finalroom">>
+You peek through the transom, but... It's blocked now. As if someone had put a piece of wood or maybe some kind of cloth to block the view; you aren't quite sure, but you can't see anything either way.
+<</if>>
+[[Listen for anything|Listen]]
+
+[[Try to open the door with brute force|Slam door]]
+<<set _index = $box.indexOfObject($wdk)>> <<if (_index >= 0) or ($beentopast == true)>>
+[[Use white doorknob|Past room]]
+<</if>>  <<set _index = $box.indexOfObject($greydk)>> <<if (_index >= 0) or ($beentofuture == true)>>
+[[Use grey doorknob|Future room]]
+<</if>> <<set _index = $box.indexOfObject($greendk)>> <<if (_index >= 0) or ($beentojungle == true)>>
+[[Use green doorknob|Jungle room]] 
+<</if>> <<set _index1 = $box.indexOfObject($bdk)>> <<set _index2 = $box.indexOfObject($bbdk)>> <<if (_index1 >= 0) or (_index2 >= 0) or ($beentocave == true)>>
+[[Use black doorknob|Cave room]]
+<</if>> <<set _index = $box.indexOfObject($goldendk)>> <<if (_index >= 0) or ($beentofinal == true)>>
+[[Use golden doorknob|Final room]]
+<</if>>
+[[Go back|Main room]]
+
+
+:: Polite {"position":"850,1150","size":"100,100"}
+You ask Lyhale how it is doing, and it smiles.
+<font color="#fcba03">
+“I am doing well, traveller. Thank you for asking. The room is quiet today and not as busy as other times, which gives me time to do what I enjoy most."
+</font>
+You ask Lyhale what that might be.
+<font color="#fcba03">
+“Why, cleaning, of course!”
+</font>
+Well, that explains why it is always busy with those glasses despite them being already clean.
+
+[[Ask for a glass of water|Glass of water]]
+
+[[Ask for a beer|Beer]]
+
+[[Rest for a while|Rest]]
+
+[[Talk with Lyhale some more|Chat]]
+<<if $ending == true>>
+[[Return home|Ending]]
+<</if>>
+[[Go back|Main room]]
+
+
+:: Pour b3-b5 {"position":"1200,4600","size":"100,100"}
+<<nobr>>
+You carefully pour the contents of the smaller bottle into the bigger one until the 
+<<if ($b5+$b3) >= 5>>
+latter is filled.
+<<set $b3 = $b3 - (5 - $b5)>>
+<<set $b5 = 5>>
+<<else>>
+first one is empty.
+<<set $b5 = $b5 + $b3>>
+<<set $b3 = 0>>
+<</if>>
+<br><br>
+<b>Small bottle holds: <<print $b3>> liters.</b>
+<br><br>
+<b>Big bottle holds: <<print $b5>> liters.</b>
+<br><br>
+[[Fill the small bottle with the spigot's water|Fill b3]]
+<br><br>
+[[Fill the big bottle with the spigot's water|Fill b5]]
+<br><br>
+[[Pour the small bottle's water into the big one|Pour b3-b5]]
+<br><br>
+[[Pour the big bottle's water into the small one|Pour b5-b3]]
+<br><br>
+[[Pour out the water from the small bottle|Reset b3]]
+<br><br>
+[[Pour out the water from the big bottle|Reset b5]]
+<br><br>
+<<if $b3 == 4>>
+[[Place the small bottle on the center|Win]]
+<br><br>
+<<elseif $b5 == 4>>
+[[Place the big bottle on the center|Win]]
+<br><br>
+<</if>>
+[[Go back|Seashells]]
+<</nobr>>
+
+
+:: Pour b5-b3 {"position":"1200,4750","size":"100,100"}
+<<nobr>>
+You carefully pour the contents of the bigger bottle into the smaller one until the 
+<<if ($b5+$b3) >= 3>>
+latter is filled.
+<<set $b5 = $b5 - (3 - $b3)>>
+<<set $b3 = 3>>
+<<else>>
+first one is empty.
+<<set $b3 = $b5 + $b3>>
+<<set $b5 = 0>>
+<</if>>
+<br><br>
+<b>Small bottle holds: <<print $b3>> liters.</b>
+<br><br>
+<b>Big bottle holds: <<print $b5>> liters.</b>
+<br><br>
+[[Fill the small bottle with the spigot's water|Fill b3]]
+<br><br>
+[[Fill the big bottle with the spigot's water|Fill b5]]
+<br><br>
+[[Pour the small bottle's water into the big one|Pour b3-b5]]
+<br><br>
+[[Pour the big bottle's water into the small one|Pour b5-b3]]
+<br><br>
+[[Pour out the water from the small bottle|Reset b3]]
+<br><br>
+[[Pour out the water from the big bottle|Reset b5]]
+<br><br>
+<<if $b3 == 4>>
+[[Place the small bottle on the center|Win]]
+<br><br>
+<<elseif $b5 == 4>>
+[[Place the big bottle on the center|Win]]
+<br><br>
+<</if>>
+[[Go back|Seashells]]
+<</nobr>>
+
+
+:: Put out the fire [add-thing lose-thing] {"position":"700,100","size":"100,100"}
+<<nobr>>
+<<if $putoutfire == false>>
+<<set _index = $box.indexOfObject($glasswater)>>
+<<set $box.deleteAt(_index)>>
+You throw your water at the fire and manage to put it out. However, Lyhale notices this and quickly stops what it is doing. It rushes towards you, coming from behind his counter, and its eyes dart between you and the fireplace. <br><br>
+<font color="#fcba03">
+“Traveller! I would appreciate it if you didn't put out the fireplace; it takes quite a while to start it... Since you were the one to put it out, help me reignite it. It is only fair."
+</font> <br><br>
+Lyhale hands you a piece of flint, and after struggling for a while, you two finally start a fire again. Lyhale gives you a stern look and gets behind the counter again to resume her cleaning chores. You realize it forgot to take away your flint, too, so... You decide to keep it. 
+<<set $box.push($flint)>>
+<<set $putoutfire = true>>
+<<else>>
+<<set $asshole += 1>>
+<<set _index = $box.indexOfObject($flint)>>
+<<if _index < 0>>
+Before you can throw the water into the fire, Lyhale rushes towards you and puts itself before the fireplace. <br><br>
+<font color="#fcba03">
+“Traveller! Not again! What are you even trying to achieve with this? Is it flint that you want? Then take it, but don't put out the fire again! Bad human, bad!"
+</font> <br><br>
+Lyhale sprays water on your face as if you were a cat and gives you a stern look. It then hands you a piece of flint and returns behind the counter without taking his eyes off you. Well, you got your flint, but now your face is wet, and Lyhale is a bit mad at you. Maybe it'd be best not to mess around with the fireplace again. 
+<<set $box.push($flint)>>
+<<else>>
+<<set _index = $box.indexOfObject($glasswater)>>
+<<set $box.deleteAt(_index)>>
+<font color="#fcba03">
+“Traveller! Not again! You have no reason to do this! Bad human, bad!"
+</font> <br><br>
+Lyhale sprays water on your face as if you were a cat and gives you a stern look. It goes back to behind the counter without taking his eyes off you. You got your flint, but now your face is wet, and Lyhale is a bit mad at you. Maybe it'd be best not to mess around with the fireplace again. 
+<</if>>
+<</if>>
+<</nobr>>
+
+[[Go back|Main room]]
+
+
+
+:: Regular ending [Ending] {"position":"850,1750","size":"100,100"}
+As you walk through the door, you shut your eyes, a white, blinding light hitting you directly. After a few seconds, you hear the door close behind you, and the light dims. Slowly, you open your eyes once again. You find yourself inside your room, lying on a bed. You look around, and sure enough, everything is there as it was before you dozed off to sleep. 
+
+You scratch your head. Had it all been a dream?
+<<if $hasbox == true>>
+You reach for your phone inside your pocket but find a small box instead. Just like the one Lyhale had given you. You open it, and to your amazement, everything is still there. The coat, the doorknobs... Your smile widens, and you put the small box close to your chest. You aren't quite sure what happened, how, or why. But you hope this was the last time it did so.
+
+Ending: 12
+<<else>>
+You reach for your phone inside your pocket but find it's out of battery. You sigh and yawn, feeling the memories of what happened fade away. What was the dream about again? There was... a robot? And some rooms? You shrug, not caring much about it anymore, and let your mind forget everything. You have things to do, after all.
+
+Ending: 13
+<</if>>
+
+
+:: Reset b3 {"position":"1200,4900","size":"100,100"}
+<<nobr>>
+You pour the water from the small bottle onto one of the nearby plants.
+<<set $b3 = 0>>
+<br><br>
+<b>Small bottle holds: <<print $b3>> liters.</b>
+<br><br>
+<b>Big bottle holds: <<print $b5>> liters.</b>
+<br><br>
+[[Fill the small bottle with the spigot's water|Fill b3]]
+<br><br>
+[[Fill the big bottle with the spigot's water|Fill b5]]
+<br><br>
+[[Pour the small bottle's water into the big one|Pour b3-b5]]
+<br><br>
+[[Pour the big bottle's water into the small one|Pour b5-b3]]
+<br><br>
+[[Pour out the water from the small bottle|Reset b3]]
+<br><br>
+[[Pour out the water from the big bottle|Reset b5]]
+<br><br>
+<<if $b3 == 4>>
+[[Place the small bottle on the center|Win]]
+<br><br>
+<<elseif $b5 == 4>>
+[[Place the big bottle on the center|Win]]
+<br><br>
+<</if>>
+[[Go back|Seashells]]
+<</nobr>>
+
+
+:: Reset b5 {"position":"1200,5050","size":"100,100"}
+<<nobr>>
+You pour the water from the big bottle onto one of the nearby plants.
+<<set $b5 = 0>>
+<br><br>
+<b>Small bottle holds: <<print $b3>> liters.</b>
+<br><br>
+<b>Big bottle holds: <<print $b5>> liters.</b>
+<br><br>
+[[Fill the small bottle with the spigot's water|Fill b3]]
+<br><br>
+[[Fill the big bottle with the spigot's water|Fill b5]]
+<br><br>
+[[Pour the small bottle's water into the big one|Pour b3-b5]]
+<br><br>
+[[Pour the big bottle's water into the small one|Pour b5-b3]]
+<br><br>
+[[Pour out the water from the small bottle|Reset b3]]
+<br><br>
+[[Pour out the water from the big bottle|Reset b5]]
+<br><br>
+<<if $b3 == 4>>
+[[Place the small bottle on the center|Win]]
+<br><br>
+<<elseif $b5 == 4>>
+[[Place the big bottle on the center|Win]]
+<br><br>
+<</if>>
+[[Go back|Seashells]]
+<</nobr>>
+
+
+:: Rest {"position":"700,1600","size":"100,100"}
+You ask Lyhale if you can rest for a while.
+<font color="#fcba03">
+“Of course, traveller. Here.”
+</font>
+Lyhale hands you a blanket and a pillow, and you lie in front of the fireplace. With a yawn, you rest your head on the pillow and cover yourself with the blanket. That, along with the warmth of the fire, helps you fall asleep pretty quickly. 
+
+
+After a few hours, you wake up slightly disoriented yet well-rested. You stretch before giving the pillow and the blanket back to Lyhale. The robot nods gently, thanking you.
+
+[[Go back|Lyhale]]
+<<set $drunk = 0>>
+
+
+
+:: Riddle {"position":"900,6700","size":"100,100"}
+<<nobr>>
+<<if $beenframe == false>>
+As you look around the room some more, you decide to investigate the frames, seeing there isn't much more. You aren't quite sure how you hadn't noticed earlier, but there is some kind of button on the first frame you approach right on the bottom. Having the same impulses as a five-year-old, you immediately press it. Luckily for you, this doesn't trigger anything that might hurt you, and instead, the frame shows a screen turning on. 
+<br><br>
+Well, that explains those. The screen shows some text, thankfully in English, and a keyboard underneath. The screen reads: "To reach your goal, you must be patient." Then, you see the screen change.
+<<set $beenframe = true>>
+<<else>>
+You approach the screen and read the text on it.
+<</if>>
+<<if $riddle == 1>>
+"What has cities, but no houses; forests, but no trees; and water, but no fish?"
+<br><br>
+[[Type an answer|Answer 1]]
+<<elseif $riddle == 2>>
+"What always runs but never walks. Often murmurs, never talks. Has a bed but never sleeps. An open mouth that never eats?"
+<br><br>
+[[Type an answer|Answer 2]]
+<<elseif $riddle == 3>>
+"My challenge has made men throughout time stumble, I have defeated kings and left wise men humble. You see me now, but I am most often heard, and have killed men when with bullets paired. You might break a sweat when fighting with me,
+but I'll exert no pressure on your body, with a direct approach you can never find victory, work laterally rather than literally. What am I?"
+<br><br>
+[[Type an answer|Answer 3]]
+<<elseif $riddle > 3>>
+It still says "Last layer of traps: Deactivated." 
+<</if>>
+<br><br>
+[[Go back|Final room]]
+<<repeat 1s>>
+<<set $seconds = $seconds - 1>>
+<<if $seconds == 0>>
+<br><br>
+<<goto "Huh?">>
+<<stop>>
+<</if>>
+<</repeat>>
+<</nobr>>
+
+
+
+:: Right1 {"position":"1050,5500","size":"100,100"}
+You keep going, determined to see where you'll end up. You walk and walk, and keep walking... 
+
+...Until you end up finding a door. At first, you feel surprise and excitement rushing through your body and run towards the door to investigate.
+
+It is covered in vines, but they barely bother you as you examine the door. A few scratches, a nice circular shape on the top, a transom... Wait a minute. You open the door and see Lyhale's counter, with the robot cleaning as always. It waves at you. You groan and close the door, realizing this is the one you used to come here in the first place. Somehow, you've looped through the jungle and got precisely where you started.
+
+[[Great|Jungle room]]
+
+
+
+:: Right2 [add-thing] {"position":"1200,5350","size":"100,100"}
+As you walk further, the path gets harder and harder to follow until there isn't any path. You look around, trying to find a reason as to why the trail you've followed stops here so suddenly, but you don't notice anything out of the ordinary.
+
+You do notice, however, that there is something weird with the air. Not in a way that bothers your breathing, but instead, you see small, white particles going around, pushed by the gentle breeze that travels the jungle. They seem like those dandelion seeds, but slightly bigger. You put your hand out and, in a swift movement, catch one. It is soft, of a nice white colour, but it doesn't look like a dandelion. It's more like... Cotton. Perhaps a seed from a kapok tree? Given the area you are in, that wouldn't be too far-fetched. 
+
+Regardless, you find it cute. You put the seed inside your box.
+<<set $box.push($kapok)>>
+You are about to continue looking around and examining the area when you hear some ruffling of leaves <i>very</i> close to you. You decide it's better not to risk it and run away to where you came from.
+
+[[Run away|Jungle room]]
+
+
+:: Seashells {"position":"900,3550","size":"100,100"}
+<<nobr>>
+<<if $metseashells == false>>
+As you walk around, you can't help but feel as if you are being watched, and you look around, trying to catch whatever might be watching you, if there is anything at all. You don't know what kind of creatures might live there, and you aren't too excited about finding out. <br><br>
+You look up, hearing the ruffling of some feathers, and to your surprise, you see a colourful parrot resting on what looks like the bird's nest. The feathers are green, red, and blue, making it hard to miss, yet its size helps it hide between the long and wide leafs. You smile at the bird, finding it pretty cute, and to your surprise, the bird looks back at you. <br><br>
+<font color="#13cf4e">
+"Whatcha lookin' at? Scram!"
+</font> 
+<br><br>
+You look at the bird for a few seconds, processing the fact that it just <i>talked</i> to you. Then again, you are using a magic door to go to different places, have a box that is basically a portable TARDIS but without the time travelling part, and have met a robot that you are pretty sure is as sentient as they come. A talking parrot isn't that far-fetched by now. 
+<br><br>
+Before you can even react, you notice something shiny on the bird's nest. Something that looks awfully similar to a doorknob. 
+<br><br>
+[[Ask the bird about it|Dk please]]
+<<set _index = $box.indexOfObject($bdk)>>
+<<else>>
+You approach the tree where Seashell's nest is. 
+<br><br>
+<<if $alive == true>>
+<<if ($giveflint == false) or ($giveice == false)>>
+<<set _index1 = $box.indexOfObject($flint)>> 
+<<set _index2 = $box.indexOfObject($glassice)>> 
+<<if (_index1 >= 0) and ($giveflint == false) and ($alive == true)>>
+<font color="#13cf4e">
+"Oh? You've got something for me?"
+</font> 
+<br><br>
+[[Give Seashells the flint|Give flint]] 
+<br><br>
+[[Throw a rock at Seashells|Kill Seashells]] 
+<br><br>
+<<elseif (_index2 >= 0) and ($giveice == false) and ($alive == true)>> 
+<font color="#13cf4e">
+"Oh? You've got something for me?"
+</font> 
+<br><br>
+[[Give Seashells the ice|Give ice]] 
+<br><br>
+[[Throw a rock at Seashells|Kill Seashells]] 
+<br><br>
+<</if>>
+<<else>>
+Seashells is resting on its nest, looking pleased. It looks at you briefly but then goes back to relaxing without minding you.
+<br><br>
+[[Throw a rock at Seashells|Kill Seashells]] 
+<br><br>
+<</if>>
+<<else>>
+The nest feels quiet and cold without the bird's talking. You rather not look up and face what you've done.
+<</if>>
+[[Shake the tree|Shake tree]]
+<</if>>
+<<if ($seenwall == true) and ($knowmetal == true)>>
+<br><br>
+[[Pull from the branches|Levers]]
+<</if>>
+<br><br>
+[[Go back|Jungle room]]
+<</nobr>>
+
+
+:: Shake tree {"position":"1050,4000","size":"100,100"}
+<<nobr>>
+You shake the tree violently. 
+<br><br>
+<<if $knowmetal == false>>
+<<if $alive == true>>
+<font color="#13cf4e">
+"WOAH! What do ya’ think you are doin'?! Stop that!"
+</font> 
+<br><br>
+Seashells seems quite angry at you now, but you notice something weird that makes you forget about the parrot's complaints. The tree trunk feels... Weird. It's heavy, which is expected from a tree as tall as this one. Yet you feel like it isn't heavy enough. You tap the trunk, and to your surprise, it sounds hollow. Not only that, but it also sounds metallic, as if you had just hit some kind of metal pipe or tube. You look at the tree, extremely confused, and decide to check the rest of the trees. They all sound normal and feel like a tree should. So then, why is this one apparently made out of metal?
+<br><br>
+<<set $knowmetal = true>>
+<<else>>
+You feel like the parrot would not have enjoyed this, but you notice something weird that makes you ignore your thoughts. The tree trunk feels... Weird. It's heavy, which is expected from a tree as tall as this one. Yet you feel like it isn't heavy enough. You tap the trunk, and to your surprise, it sounds hollow. Not only that, but it also sounds metallic, as if you had just hit some kind of metal pipe or tube. You look at the tree, extremely confused, and decide to check the rest of the trees. They all sound normal and feel like a tree should. So then, why is Seashell's tree apparently made out of metal?
+<br><br>
+<<set $knowmetal = true>>
+<</if>>
+<<else>>
+<<if $alive == true>>
+<<set $asshole += 1>>
+<font color="#13cf4e">
+"AGAIN?! I won't repeat myself next time, stop that!"
+</font> <br><br>
+You decide to listen to Seashells. After all, this is a bit useless, given that nothing is falling off the tree or the parrot's nest. 
+<br><br>
+<<else>>
+You keep going for a bit, but nothing happens or falls from the branches or nest. It feels like a waste of energy more than anything.
+<br><br>
+<</if>>
+<</if>>
+<<if $alive == true>>
+[[Throw a rock at Seashells|Kill Seashells]] 
+<br><br>
+<</if>>
+[[Go back|Jungle room]]
+<</nobr>>
+
+
+:: SignF {"position":"1200,3100","size":"100,100"}
+<<nobr>>
+<<if $readsignf == false>>
+<<if $readsignp == true>>
+You approach the wooden sign and shake it softly to uncover the text from the snow. It has the exact same text as the one from the previous room, yet it looks much older and beaten up. The sign says: "Warning! Please, refrain from touching or drinking the water". 
+<<else>>
+You approach the wooden sign and shake it softly to uncover the text from the snow. The sign says: "Warning! Please, refrain from touching or drinking the water". 
+There doesn't seem to be any continuation to the warning or somewhere that explains <i>why</i> you shouldn't come in contact with the water in front of you. Thankfully for you, it seems like the whole lake is frozen solid, so that shouldn't be much of a problem. 
+<</if>>
+<<set $readsignf = true>>
+<<else>>
+The sign reads: "Warning! Please, refrain from touching or drinking the water".
+<</if>>
+<</nobr>>
+
+[[Go towards the doorknob|Island]]
+
+[[Go back|Future room]]
+
+
+
+
+:: SignP {"position":"1050,2800","size":"100,100"}
+<<nobr>>
+<<if $readsignp == false>>
+<<if $readsignf == true>>
+You approach the wooden sign and read it. It has the exact same text as the one from the previous room, yet it looks much newer and less icy. The sign says: "Warning! Please, refrain from touching or drinking the water". 
+<<else>>
+You approach the wooden sign and read it. You don't know where you are, but luckily, it's written in English. The sign says: "Warning! Please, refrain from touching or drinking the water". You look behind to check if that is all, but there doesn't seem to be any continuation to the warning or somewhere that explains <i>why</i> you shouldn't come in contact with the water in front of you. Then again... If the sign is there, it might be for a reason. 
+<</if>>
+<<set $readsignp = true>>
+<<else>>
+The sign reads: "Warning! Please, refrain from touching or drinking the water".
+<</if>>
+<</nobr>>
+
+[[Get in the water|Swim]]
+
+[[Go back|Past room]]
+
+
+
+:: Slam door {"position":"300,2200","size":"100,100"}
+<<nobr>> <<if $slam == false>>
+You decide to try your luck and brute force your way out of this room. You slam against it, but the effort is in vain as it doesn't move a single inch. 
+
+Now your arm hurts, and the door is still locked. Great.
+<<set $slam = true>>
+<<else>>
+You've already tried it, and you've already seen it does nothing. Please stop, don't hurt yourself again :(
+<</if>> <</nobr>>
+
+[[Peek through the transom|Peek]]
+
+[[Listen for anything|Listen]]
+<<set _index = $box.indexOfObject($wdk)>> <<if _index >= 0>>
+[[Use white doorknob|Past room]]
+<</if>>  <<set _index = $box.indexOfObject($greydk)>> <<if _index >= 0>>
+[[Use grey doorknob|Future room]]
+<</if>> <<set _index = $box.indexOfObject($greendk)>> <<if _index >= 0>>
+[[Use green doorknob|Jungle room]] 
+<</if>> <<set _index = $box.indexOfObject($bdk)>> <<if _index >= 0>>
+[[Use black doorknob|Cave room]]
+<</if>> <<set _index = $box.indexOfObject($goldendk)>> <<if _index >= 0>>
+[[Use golden doorknob|Final room]]
+<</if>>
+[[Go back|Main room]]
+
+
+:: Slipped [Ending] {"position":"1200,3400","size":"100,100"}
+You slip on the ice as you try to get to the doorknob. Which, considering you are drunk, seems a bit of an obvious consequence looking back. You hit your head against the harsh ice, and while the frozen water doesn't break, you don't have the same luck. 
+
+Being sober usually helps when you try to do stuff like this.
+
+Ending: 7
+
+
+
+:: Starting room {"position":"300,100","size":"100,100"}
+The room is quiet around you, a subtle hum being the only thing to disturb the silence of the place. You get up and look in the direction of the hum, and see a robot behind what looks like a [[bar counter|Lyhale]], cleaning two glasses with its four metallic arms. Next to it, there's a [[cozy fireplace|Fireplace]] with some fire crackling there. 
+
+You also notice a [[door to the left of the counter|Main door]] on one of the room's walls.
+
+Besides those things and yourself, there doesn't seem to be anything else.
+
+
+
+:: Staying [Ending] {"position":"1000,400","size":"100,100"}
+You tell Lyhale you'd like to stay.
+<font color="#fcba03">
+“Oh. Very well then.”
+</font>
+Lyhale resumes the cleaning and starts humming once again. Well. This is your home now. Get comfortable
+
+Ending: 2
+
+
+
+
+:: StoryCaption [data] {"position":"100,500","size":"100,100"}
+<<if $hasbox == true>> Box:
+
+	<<for _i = 0; _i < $box.length; _i++>>
+    	<b><<print $box[_i].name>></b> - <<print $box[_i].description>> 
+        <<nobr>>
+        <<if def $box[_i].use>>
+        <<print $box[_i].use>>
+        <</if>>
+        <</nobr>>
+    <</for>>  
+<</if>>
+
+
+:: StoryInit [data] {"position":"100,600","size":"100,100"}
+<<cacheaudio "fireplace" "music/fireplace.mp3">>
+
+
+:: Swim [Ending] {"position":"1050,2650","size":"100,100"}
+<<nobr>>
+<<if $readsignp == true>>
+"This sign can't stop me because I can't read!". That's how you sound as you decide to get into the water. At first, it's fine; you put your hand in the water, and nothing happens. It's not even that cold; you could easily swim to that small island in the middle of the lake and fetch the doorknob, or so you think. You get fully into the water, which is surprisingly warm. You start swimming, getting further from the shore... but soon enough, you feel something. It's as if the water was burning you, yet not in a scalding way. It hurts; it burns. Then, it creeps up on you. Warm, hot, stinging, burning, like thousands of hornets stinging you everywhere. Soon enough, you are drowning in the lake with the highly acidic water.
+<<else>>
+You decide not to read the sign in front of you and go straight to the water. At first, it's fine; you put your hand in the water, and nothing happens. It's not even that cold; you could easily swim to that small island in the middle of the lake and fetch the doorknob, or so you think. You get fully into the water, which is surprisingly warm. You start swimming, getting further from the shore... but soon enough, you feel something. It's as if the water was burning you, yet not in a scalding way. It hurts; it burns. Then, it creeps up on you. Warm, hot, stinging, burning, like thousands of hornets stinging you everywhere. Soon enough, you are drowning in the lake with the highly acidic water. 
+<</if>>
+<</nobr>>
+
+Maybe pay attention to signs next time. They are there for a reason.
+
+Ending: 5
+
+
+
+:: Talk Dragon [add-thing] {"position":"1500,6100","size":"100,100"}
+<<nobr>>
+You try to talk with the dragon despite its warnings, and the beast looks down at you, both literally and figuratively.
+<br><br>
+<font color="#a4d6fc">
+"What is it that you need now, human?"
+</font>
+<br><br>
+You aren't sure what to say; you didn't think the dragon would even hear you out in the first place, so your eyes dart around the room to find something to tell him or ask. Then, you notice something sticking out of the ground. It looks like... A dandelion? You point at the small plant and ask the dragon about it.
+<br><br>
+<font color="#a4d6fc">
+"That? It is but a mere weed; how it managed to grow here escapes me. It serves me no purpose. If you consider it might help you, it is yours. But do not bother me again."
+</font>
+<br><br>
+You eagerly grab the dandelion, being careful not to squish it or make its seeds fly away, and put it in your box.
+<<set $box.push($dandelion)>>
+<br><br>
+You consider taking something else from the dragon's lair with the excuse that you need it for your quest, but how the dragon looks at you makes you rethink that. Maybe it'd be best to leave now while you can.
+<br><br>
+[[Get out|Exit lair]]
+<</nobr>>
+
+
+:: Time out [Ending] {"position":"900,7300","size":"100,100"}
+The countdown reaches zero, and suddenly, the hallway lights turn off. The voice disappears, and for a few seconds, there is only silence. You grasp the doorknob between your hands even harder, expecting the worst.
+
+And eventually, the worst happens. The floor opens, making you fall helplessly into the nothingness. While the fall isn't long enough to hurt you, the spikes on the ground do the trick just fine.
+
+Ending: 11
+
+
+:: TreeF [add-thing] {"position":"1050,2950","size":"100,100"}
+<<nobr>>
+<<if $beentreefuture == false>>
+<<if $beentreepast == true>>
+You aren't quite sure what kinds of trees these are, but they seem to be the same as those in the other room. Yet this time, their trunks are frozen and covered in ice, making it virtually impossible for you to climb any.
+You approach one that, for some reason, seems more familiar to you than the others, and your eyes widen when you notice that it has a broken branch. It is in the same spot as the one you snapped. That can't be a coincidence, right...?
+<<else>>
+You aren't quite sure what kinds of trees these are, and despite having extensive knowledge on the topic, you can't think of any that fit the description of the ones around you <i>and</i> that can live in such harsh weather. They look like samans, but as far as you are aware, they shouldn't be able to survive in this cold. Their trunks are frozen and covered in ice, making it virtually impossible for you to climb any.
+<</if>>
+<<else>>
+The trees stand tall and proud before you. They all have their trunks covered in ice, so you can't climb them.
+<</if>>
+<</nobr>>
+<<if $frozenwater == true>>
+While you look around, you notice something. Hey, that's the glass you left earlier! Though now it's a glass of ice instead of water. You decide that you might as well keep it. <<set $box.push($glassice)>>  <<set $frozenwater = false>>
+<</if>>
+[[Go back|Future room]]
+<<set $beentreefuture = true>>
+
+
+
+:: TreeP [add-thing] {"position":"900,2350","size":"100,100"}
+<<nobr>>
+<<if ($beentreepast == false) and ($beentreepast == false)>>
+You aren't quite sure what kinds of trees these are, and despite having extensive knowledge on the topic, you can't think of any that fit the description of the ones around you <i>and</i> that can live in such harsh weather. They look like samans, but as far as you are aware, they shouldn't be able to survive in this cold.
+In an effort to check the trees, you approach one that has some lower branches. You touch its trunk and the branches you can reach to inspect them, but accidentally snap one of them. You hope the tree doesn't mind, but at least you've got a cool branch now. The branch also has a small twig growing from it and, at the end, a small carob. You take the carob from the branch and save it. While you are still determining what kind of tree it is, you think it could be interesting to plant it when you return home. ...If you return home at all. You place both things inside the box.
+<<set $box.push($branch, $carob)>>
+<<elseif ($beentreepast == false) and ($beentreepast == true)>>
+You aren't quite sure what kinds of trees these are, but you know you've definitely seen them before. Maybe... You don't know if you are mixing things, but you could have sworn they look identical to the trees from the other room, though less frozen and snowy. They look like samans, but as far as you are aware, they shouldn't be able to survive in this cold.
+<br><br>
+In an effort to check the trees, you approach one that has some lower branches. You touch its trunk and the branches you can reach to inspect them, but accidentally snap one of them. You hope the tree doesn't mind, but at least you've got a cool branch now. The branch also has a small twig growing from it and, at the end, a small carob. You take the carob from the branch and save it. While you are still determining what kind of tree it is, you think it could be interesting to plant it when you return home. ...If you return home at all. You place both things inside the box.
+<<elseif $beentreepast == true>>
+The trees stand tall and proud before you.
+<</if>> <</nobr>> 
+<<if $bigtree == false>>
+Most of the trees are too tall to reach even the lowest of their branches, but one has a few you could grab and hold onto, albeit with some effort. 
+
+[[Try to climb a tree|Climb]]
+<<else>>
+All the trees are too tall for you to reach, and the cold also makes it hard to get a hold of anything with your uncovered hands.
+<</if>> <<set _index = $box.indexOfObject($glasswater)>> <<if (_index >= 0) and ($bigtree == false)>>
+[[Water the tree|Water tree]]
+<</if>>
+[[Go back|Past room]]
+<<set $beentreepast = true>>
+
+
+
+:: Type {"position":"1050,7150","size":"100,100"}
+<<nobr>>
+The counting down continues.
+<br><br>
+<font color="#9761ed">
+<b>Countdown: <span id="countdown">$seconds seconds remaining</span>.</b>
+</font>
+<<silently>>
+<<repeat 1s>>
+<<set $seconds to $seconds - 1>>
+<<if $seconds > 0>>
+<<replace "#countdown">>$seconds seconds remaining<</replace>>
+<<else>>
+<<replace "#countdown">> <<goto "Time out">> <</replace>>
+<<stop>>
+<</if>>
+<</repeat>>
+<</silently>>
+<br><br>
+The screen awaits an answer. The text says: "To deactivate, please input the answers in the opposite order you input them."
+<br><br>
+A(n) <<textbox "$answer4" "">>, a(n) <<textbox "$answer5" "">>, a(n) <<textbox "$answer6" "">>.
+<br><br>
+[[Check your answer|Checkend]]
+<</nobr>>
+
+
+
+:: Wake up {"position":"100,100","size":"100,100"}
+You let out a soft yawn as your eyes flutter open, waking up from a heavy slumber. You can't remember when you fell asleep, but this nap manages to recover your energy. Once you feel less drowsy, you notice something is... off. Not only do you not remember when you fell asleep, but you also can't remember <i>where</i> you did so. To add to the uneasiness, once you start looking around, you realise you don't know where you are at all.
+
+[[You look around the room, confused|Starting room]]
+
+
+:: Walk around {"position":"900,5200","size":"100,100"}
+<<nobr>>
+<<set _index = $box.indexOfObject($kapok)>>
+<<if _index < 0>>
+You walk around for a while, following the path to the right. The views around you are pretty, that's for sure, but besides some exotic trees and plants, you don't see too many things worth mentioning. The sounds around you, however, make you feel slightly uncomfortable. Some ruffling between bushes and plants, birds chirping and squawking, and... some... Footsepts? Are those what you hear in the background?
+<br><br>
+You look around, suddenly not feeling as safe as you used to, yet see nothing or no one. Perhaps the jungle is getting into your head, making you worry despite being safe. 
+<br><br>
+Or perhaps you should follow your instincts and be careful.
+<br><br>
+The path continues and eventually splits into two.
+<br><br>
+[[Go left|Left1]]
+<br><br>
+[[Go right|Right1]]
+<<set $walked = true>>
+<<else>>
+You are about to follow the path to your right once again when you remember why you ran away in the first place. You decide that maybe it's not a very bright idea to risk your life for no apparent reason again. 
+<</if>>
+<br><br>
+[[Go back|Jungle room]]
+<</nobr>>
+
+
+:: Wall {"position":"900,6400","size":"100,100"}
+You look at the wall once again. It's a drawing of three levers and a person pulling from the three of them. That drawing is followed by an arrow pointing at a bridge, and that's it. That is probably the way to reach the other side, yet you can't see any levers in the cave. 
+
+[[Go back|Cave room]]
+
+
+:: Water tree [lose-thing add-thing] {"position":"1050,2500","size":"100,100"}
+<<nobr>>
+You pour the water at the base of the tree. At first, nothing happens, so you kind of stay there, waiting for something to happen. Maybe you need more water? It's a huge tree after al-
+<br><br>
+Before you realize it, the ground starts shaking underneath you. You look around, frightened and trying to get a hold to anything, really, until the sudden trembling stops. You eyes dart around in an attempt to locate the cause of the small earthquake, and they only spot when they land on the tree you just watered. The ground beneath it is slighty open, cracked, and the truck seems to be... growing? It's as if it was doing a month of growing in just a few seconds before your eyes. The tree rises, now taller than any other, and its branches expand to their side as leafs grow on their tips. 
+<br><br>
+Thankfully, the shaking only lasts a couple of seconds, yet to you it feels like hours. Once you've calmed down and the esplanade is once again still and quiet, you approach the tree. You heavily doubt you'd be able to climb the tree again, given how now all the branches that were low enough for you to grab have risen into the air. But, you manage to spot that one branch, now full of leafs, looms above the small island with the doorknob on it and casting a shadow.
+<br><br>
+<<set _index = $box.indexOfObject($glasswater)>> 
+<<set $box.deleteAt(_index)>> 
+<<set _index = $box.indexOfObject($coat)>> 
+<<if _index < 0>>
+Before you turn around, you notice something fell off the tree. It's a green coat, thankfully not too messed up from being tangled in the tree branches before falling to your feet. You decide to put it inside the box. 
+<<set $box.push($coat)>> 
+<br><br>
+<</if>>
+<<if $beenisland == true>> 
+Now the upcoming storm won't hit the doorknob, which hopefully means it won't be frozen anymore. 
+<br><br>
+<</if>>
+[[Go back|Past room]]
+<<set $bigtree = true>>
+<</nobr>>
+
+
+:: Where {"position":"850,400","size":"100,100"}
+You ask Lyhale where you are.
+<font color="#fcba03">
+“You are in the room, of course.”
+</font>
+Seeing how that doesn't seem to answer your question, Lyhale tilts its head.
+<font color="#fcba03">
+“I take it is your first time here. Very well. This is a rest stop of sorts for travellers in need of a quick rest or some company. Feel free to stay for as long as needed, and once you feel like resuming your adventure, you may use the door with your doorknob.”
+</font>
+You frown, confused about what he means by that, and ask the robot to explain further.
+<font color="#fcba03">
+“Did you... Not bring your doorknob?”
+</font>
+You shake your head.
+<font color="#fcba03">
+“...Oh dear. That might be a problem.”
+</font>
+Lyhale stops cleaning the glass with its lower arms and sets it aside. It puts three arms on its hips, and the robot scratches its chin with the other. 
+<font color="#fcba03">
+"And is it essential for you to return home? You could stay if you'd like.”
+</font>
+[[Reassure Lyhale that you do want to go back home|Objective]]
+
+[[Stay|Staying]]
+
+
+
+:: Why [Ending] {"position":"1050,5950","size":"100,100"}
+You throw yourself into the abyss... For some reason. Why did you think this was a good idea? The pebble didn't return, why would you?
+
+Next time, try to listen to your head and don't fall into endless pits.
+
+Ending: 9
+
+
+
+:: Win {"position":"1350,4300","size":"100,100"}
+<<nobr>>
+You place the bottle that holds precisely 4 litres on the small pedestal. For a few seconds, nothing happens, but then a soft "click" followed by some mechanical noises of gears can be heard from inside the tree, and the pedestal falls to the height of the rest of the surface. 
+<br><br>
+You look around but don't see anything new or changed. Perhaps this did something somewhere else. Or perhaps this was useless, and you just wasted your time. 
+<<set $waterwin = true>>
+<<set $bridge = true>>
+<<set $currentmission = "nothing">>
+<</nobr>>
+
+[[Nice|Jungle room]] 
+
+
+:: start for him [him-only] {"position":"100,300","size":"100,100"}
+<<type 20ms>>\
+Hey there! Your partner has been complaining <b>a lot</b> about you not making a Christmas list this year for them to get you something nice and make you smile, so of course, they made the only rational decision left and did... Whatever this is. 
+Merry Christmas! They love you so much, and they will absolutely punch you in the face if you don't like this <3
+Without further ado, here is your gift!
+
+[[Open the gift|Wake up]]
+\<</type>>
+
+<<timed 30s>> <<type 20ms>>\
+Uh... What exactly are you waiting for? Do you... not know how to keep going? It's pretty intuitive, really. Just click the blue text, kind of like a hyperlink. Come on, go ahead. They don't bite. 
+<<timed 3s>> <<type 10ms>>\ 
+...I think 
+\<</type>> <</timed>> 
+\<</type>>  <</timed>> 
+
+
+
+:: StoryScript [script]
+<!-- first times -->
+
+State.variables.metLyhale = false;
+
+State.variables.beentomaindoor = false;
+
+State.variables.hasbox = false;
+
+State.variables.slam = false;
+
+State.variables.beentofireplace = false;
+
+State.variables.putoutfire = false;
+
+
+State.variables.beentopast = false;
+
+State.variables.beentreepast = false;
+
+State.variables.beenlakepast = false;
+
+State.variables.climbedtree = false;
+
+State.variables.readsignp = false;
+
+State.variables.bigtree = false;
+
+State.variables.frozenwater = false;
+
+
+State.variables.beentofuture = false;
+
+State.variables.beentreefuture = false;
+
+State.variables.beenlakefuture = false;
+
+State.variables.beenisland = false;
+
+State.variables.readsignf = false;
+
+
+State.variables.beentojungle = false;
+
+State.variables.metseashells = false;
+
+State.variables.walked = false;
+
+State.variables.alive = true;
+
+State.variables.giveflint = false;
+
+State.variables.giveice = false;
+
+State.variables.knowmetal = false;
+
+State.variables.pulllevers = false;
+
+State.variables.waterwin = false;
+
+State.variables.b3 = 0;
+
+State.variables.b5 = 0;
+
+
+State.variables.beentocavedark = false;
+
+State.variables.beentocavelight = false;
+
+State.variables.light = false;
+
+State.variables.bridge = false;
+
+State.variables.beenbridge = false;
+
+State.variables.seenbridge = false;
+
+State.variables.beenabyss = false;
+
+State.variables.beenlair = false;
+
+State.variables.seenwall = false;
+
+
+State.variables.beentofinal = false;
+
+State.variables.beenframe = false;
+
+State.variables.solved = false;
+
+State.variables.riddle = 1;
+
+State.variables.answer1 = "";
+
+State.variables.answer2 = "";
+
+State.variables.answer3 = "";
+
+State.variables.answer4 = "";
+
+State.variables.answer5 = "";
+
+State.variables.answer6 = "";
+
+
+State.variables.ending = false;
+
+
+<!-- initializing stuff -->
+
+State.variables.asshole = 0;
+
+State.variables.box = [];
+
+State.variables.drunk = 0;
+
+State.variables.currentdoor = "nothing";
+
+State.variables.currentmission = "nothing";
+
+
+<!-- objects -->
+
+State.variables.glassofbeer = {
+  "name" : "Glass of beer",
+  "description" : "A glass with fresh beer, it looks appetizing",
+};
+
+State.variables.glasswater = {
+  "name" : "Glass of water",
+  "description" : "A small glass with room-temperature water",
+};
+
+State.variables.wdk = {
+  "name" : "White doorknob",
+  "description" : "Has a shiny moonstone on it."
+};
+
+State.variables.greydk = {
+  "name" : "Grey doorknob",
+  "description" : "Has an old, worn out moonstone on it."
+};
+
+State.variables.branch = {
+  "name" : "Tree branch",
+  "description" : "Large tree branch you accidentally took from a tree. Hopefully the tree didn't mind."
+};
+
+State.variables.carob = {
+  "name" : "Carob",
+  "description" : "A small carob with seeds inside. It sounds like a maraca when you shake it.",
+};
+
+State.variables.coat = {
+  "name" : "Coat",
+  "description" : "A cosy and warm coat of a nice green colour. It seems to be your size.",
+};
+
+State.variables.greendk = {
+  "name" : "Green doorknob",
+  "description" : "Has a beautiful jade embedded."
+};
+
+State.variables.glassice = {
+  "name" : "Glass of ice",
+  "description" : "It's ice on a glass. It's cold. There isn't much more to it."
+};
+
+State.variables.flint = {
+  "name" : "Piece of flint",
+  "description" : "A small piece of flint. It could be used to start a fire."
+};
+
+State.variables.bbdk = {
+  "name" : "Black bloody doorknob",
+  "description" : "It is decorated with a dark piece of obsidian, stained with some blood."
+};
+
+State.variables.bdk = {
+  "name" : "Black doorknob",
+  "description" : "It is decorated with a dark piece of obsidian."
+};
+
+State.variables.kapok = {
+  "name" : "Cotton seed",
+  "description" : "A cotton-like seed fibre obtained from the Jungle. It is soft, of a pure white color.",
+};
+
+State.variables.nut = {
+  "name" : "Nut",
+  "description" : "A small nut of the color is darkness. No, this isn't to be edgy, it's literally the color of a shadow regarless of where it is.",
+};
+
+State.variables.goldendk = {
+  "name" : "Golden doorknob",
+  "description" : "It is covered in gold, with a gemstone of matching color and material."
+};
+
+State.variables.dandelion = {
+  "name" : "Dandelion full of seeds",
+  "description" : "A very tiny and delicate dandelion, with many seeds attached. It seems like they could fly off anywhere with just a gentle breeze.",
+};
+
+State.variables.mdk = {
+  "name" : "Master doorknob",
+  "description" : "It's the master doorknob, the only one lacking a gem. It will take you anywhere."
+};
+
+State.variables.roomseed = {
+  "name" : "Lyhale's gift",
+  "description" : "A small seed that Lyhale gifted you. If you take care of it properly, perhaps  you'll see your friend again.",
+};
+
+
+
+<!-- DO NOT TOUCH -->
+
+setup.VarUtils = { /* Variable Utility Functions */
+
+	/* isArray: Returns if a value is an array. */
+	isArray: function (Value) {
+		return Array.isArray(Value);
+	},
+
+	/* isBoolean: Returns if a value is a boolean. */
+	isBoolean: function (Value) {
+		return typeof Value === "boolean";
+	},
+
+	/* isDate: Returns if value is a date object. */
+	isDate: function (Value) {
+		return setup.VarUtils.isObject(Value) && Value instanceof Date;
+	},
+
+	/* isFunction: Returns if a value is a function. */
+	isFunction: function (Value) {
+		return typeof Value === "function";
+	},
+
+	/* isGenericObject: Returns if a value is a generic object. */
+	isGenericObject: function (Value) {
+		return setup.VarUtils.isObject(Value) && Value.constructor === Object;
+	},
+
+	/* isInteger: Returns if a value is an integer. */
+	isInteger: function (Value) {
+		return Number.isInteger(Value);
+	},
+
+	/* isMap: Returns if a value is a map. */
+	isMap: function (Value) {
+		return setup.VarUtils.isObject(Value) && Value instanceof Map;
+	},
+
+	/* isNull: Returns if a value is null. */
+	isNull: function (Value) {
+		return Value === null;
+	},
+
+	/* isNumber: Returns if a value is a number. */
+	isNumber: function (Value) {
+		return (typeof Value === "number") && Number.isFinite(Value) && (!Number.isNaN(Value));
+	},
+
+	/* isObject: Returns if a value is an object (not including "null"). */
+	isObject: function (Value) {
+		return !!Value && typeof Value === "object";
+	},
+
+	/* isProperty: Returns if Prop is a property of the object Obj. */
+	isProperty: function (Obj, Prop) {
+		var result = false;
+		if (setup.VarUtils.isObject(Obj)) {
+			result = Obj ? hasOwnProperty.call(Obj, Prop) : false;
+			if (!result) {				 /* if not pass... */
+				try {
+					if (Obj[Prop] === undefined) {
+						result = false;  /* double-check fail */
+					} else {
+						result = true;   /* double-check pass */
+					}
+				} catch(error) {
+					result = false;		 /* error fail */
+				}
+			}
+		}
+		return result;
+	},
+
+	/* Returns if a value is a regexp. */
+	isRegExp: function (Value) {
+		return setup.VarUtils.isObject(Value) && Value.constructor === RegExp;
+	},
+
+	/* isSet: Returns if a value is a set. */
+	isSet: function (Value) {
+		return setup.VarUtils.isObject(Value) && Value instanceof Set;
+	},
+
+	/* isString: Returns if a value is a string. */
+	isString: function (Value) {
+		return (typeof Value === "string") || (Value instanceof String);
+	},
+
+	/* isUndefined: Returns if a value is undefined. */
+	isUndefined: function (Value) {
+		return typeof Value === "undefined";
+	},
+
+	/* spread: Returns a Map, Set, or String converted to an array.
+			If the second parameter is an Array, Map, Set, or String, then
+			the two objects are spread and returned as a single array.
+			If a function is passed as the second parameter, this calls the
+			function with the spread array as parameters and returns that
+			function's value. */
+	spread: function (Value, Funct) {
+		var arr = [];
+		if (setup.VarUtils.isArray(Value)) {
+			arr = clone(Value);
+		} else if (setup.VarUtils.isMap(Value)) {
+			Value.forEach(function(val, key, map) {
+				arr.push([key, val]);
+			});
+		} else if (setup.VarUtils.isSet(Value)) {
+			Value.forEach(function(val, key, set) {
+				arr.push(val);
+			});
+		} else if (setup.VarUtils.isString(Value)) {
+			arr = Value.split('');
+		}
+		if (setup.VarUtils.isFunction(Funct)) {
+			return Funct.apply(null, arr);
+		} else if (setup.VarUtils.isObject(Funct)) {
+			arr = arr.concat(setup.VarUtils.spread(Funct));
+		}
+		return arr;
+	},
+
+	/* arraysAreEqual: Check two arrays to see if they're identical.
+			IgnoreObjectPairs is for internal use to prevent infinite loops
+			of objects. */
+	arraysAreEqual: function (Array1, Array2, IgnoreObjectPairs) {
+		if (setup.VarUtils.isArray(Array1) && setup.VarUtils.isArray(Array2)) {
+			var i = 0;
+			if (setup.VarUtils.isUndefined(IgnoreObjectPairs)) {
+				IgnoreObjectPairs = [];
+			}
+			if (IgnoreObjectPairs.length > 0) {
+				for (i = 0; i < IgnoreObjectPairs.length; i++) {
+					if (((IgnoreObjectPairs[i][0] === Array1) && (IgnoreObjectPairs[i][1] === Array2)) ||
+						((IgnoreObjectPairs[i][0] === Array2) && (IgnoreObjectPairs[i][1] === Array1))) {
+							return true;  /* Ignores object pairs that have already been checked to prevent infinite loops. */
+					}
+				}
+			}
+			IgnoreObjectPairs.push([Array1, Array2]);
+			if (Array1.length !== Array2.length) {
+				return false;  /* Arrays are not the same length. */
+			}
+			if (Array1.length > 0) {
+				for (i = 0; i < Array1.length; i++) {
+					if (!setup.VarUtils.valuesAreEqual(Array1[i], Array2[i], IgnoreObjectPairs)) {  /* OOO function call. */
+						return false;  /* Values or types do not match. */
+					}
+				}
+			}
+			return true;  /* All values match. */
+		}
+		return false;  /* Both are not arrays. */
+	},
+
+	/* mapsAreEqual: Returns if two maps contain the same values in the
+			same order.
+			IgnoreObjectPairs is for internal use to prevent infinite loops
+			of objects. */
+	mapsAreEqual: function (Map1, Map2, IgnoreObjectPairs) {
+		if (setup.VarUtils.isMap(Map1) && setup.VarUtils.isMap(Map2)) {
+			if (Map1.size === Map2.size) {
+				if (setup.VarUtils.isUndefined(IgnoreObjectPairs)) {
+					IgnoreObjectPairs = [];
+				}
+				if (IgnoreObjectPairs.length > 0) {
+					for (var i = 0; i < IgnoreObjectPairs.length; i++) {
+						if (((IgnoreObjectPairs[i][0] === Map1) && (IgnoreObjectPairs[i][1] === Map2)) ||
+							((IgnoreObjectPairs[i][0] === Map2) && (IgnoreObjectPairs[i][1] === Map1))) {
+								return true;  /* Ignores object pairs that have already been checked to prevent infinite loops. */
+						}
+					}
+				}
+				IgnoreObjectPairs.push([Map1, Map2]);
+				var a = setup.VarUtils.spread(Map1), b = setup.VarUtils.spread(Map2);
+				return setup.VarUtils.arraysAreEqual(a, b, IgnoreObjectPairs);  /* Compares maps. */
+			}
+		}
+		return false;  /* Both are either not maps or are maps of different sizes. */
+	},
+
+	/* objectsAreEqual: Check two objects to see if they're identical.
+			IgnoreObjectPairs is for internal use to prevent infinite loops
+			of objects. */
+	objectsAreEqual: function (Obj1, Obj2, IgnoreObjectPairs) {
+		if (setup.VarUtils.isObject(Obj1) && setup.VarUtils.isObject(Obj2)) {
+			var i = 0;
+			if (setup.VarUtils.isUndefined(IgnoreObjectPairs)) {
+				IgnoreObjectPairs = [];
+			}
+			if (IgnoreObjectPairs.length > 0) {
+				for (i = 0; i < IgnoreObjectPairs.length; i++) {
+					if (((IgnoreObjectPairs[i][0] === Obj1) && (IgnoreObjectPairs[i][1] === Obj2)) ||
+						((IgnoreObjectPairs[i][0] === Obj2) && (IgnoreObjectPairs[i][1] === Obj1))) {
+							return true;  /* Ignores object pairs that have already been checked to prevent infinite loops. */
+					}
+				}
+			}
+			IgnoreObjectPairs.push([Obj1, Obj2]);
+			if (setup.VarUtils.isGenericObject(Obj1) && setup.VarUtils.isGenericObject(Obj2)) {
+				var Keys1 = Object.keys(Obj1).sort(), Keys2 = Object.keys(Obj2).sort();
+				if (!setup.VarUtils.arraysAreEqual(Keys1, Keys2)) {
+					return false;  /* Objects have a different number of keys or have different keys. */
+				}
+				if (Keys1.length > 0) {
+					var Key;
+					for (i = 0; i < Keys1.length; i++) {
+						Key = Keys1[i];
+						if (!setup.VarUtils.valuesAreEqual(Obj1[Key], Obj2[Key], IgnoreObjectPairs)) {  /* OOO function call. */
+							return false;  /* Values do not match. */
+						}
+					}
+				}
+				return true;  /* All values match. */
+			} else {
+				return setup.VarUtils.valuesAreEqual(Obj1, Obj2, IgnoreObjectPairs);  /* Return whether objects match. OOO function call. */
+			}
+		}
+		return false;  /* Both are not objects. */
+	},
+
+	/* setsAreEqual: Returns if two sets contain the same values in the
+			same order.
+			IgnoreObjectPairs is for internal use to prevent infinite loops
+			of objects. */
+	setsAreEqual: function (Set1, Set2, IgnoreObjectPairs) {
+		if (setup.VarUtils.isSet(Set1) && setup.VarUtils.isSet(Set2)) {
+			if (Set1.size === Set2.size) {
+				if (setup.VarUtils.isUndefined(IgnoreObjectPairs)) {
+					IgnoreObjectPairs = [];
+				}
+				if (IgnoreObjectPairs.length > 0) {
+					for (var i = 0; i < IgnoreObjectPairs.length; i++) {
+						if (((IgnoreObjectPairs[i][0] === Set1) && (IgnoreObjectPairs[i][1] === Set2)) ||
+							((IgnoreObjectPairs[i][0] === Set2) && (IgnoreObjectPairs[i][1] === Set1))) {
+								return true;  /* Ignores object pairs that have already been checked to prevent infinite loops. */
+						}
+					}
+				}
+				IgnoreObjectPairs.push([Set1, Set2]);
+				var a = setup.VarUtils.spread(Set1), b = setup.VarUtils.spread(Set2);
+				return setup.VarUtils.arraysAreEqual(a, b, IgnoreObjectPairs);  /* Compares sets. */
+			}
+		}
+		return false;  /* Both are either not sets or are sets of different sizes. */
+	},
+
+	/* setsMatch: Returns if two sets contain matches for all values in
+			any order. */
+	setsMatch: function (Set1, Set2) {
+		if (setup.VarUtils.isSet(Set1) && setup.VarUtils.isSet(Set2)) {
+			if (Set1.size === Set2.size) {
+				if (Set1.size > 0) {  /* Compare sets. */
+					var setIterator = Set1.values();
+					var result = setIterator.next();
+					while (!result.done) {
+						if (!Set2.has(result.value)) return false;  /* Sets do not match. */
+						result = setIterator.next();
+					}
+				}
+				return true;  /* Sets match. */
+			}
+		}
+	},
+
+	/* valuesAreEqual: Check two variables to see if they're identical.
+			This function does not support comparing symbols, functions, or
+			custom types.
+			IgnoreObjectPairs is for internal use to prevent infinite loops
+			of objects. */
+	valuesAreEqual: function (Var1, Var2, IgnoreObjectPairs) {
+		if (typeof Var1 === typeof Var2) {
+			switch (typeof Var1) {
+				/* String */
+				case "string":
+				/* Number */
+				case "number":  // eslint-disable-line no-fallthrough
+				/* Boolean */
+				case "boolean":  // eslint-disable-line no-fallthrough
+					return Var1 === Var2;  /* Returns whether variables are equal or not. */
+				/* Undefined */
+				case "undefined":
+					return true;  /* Variables are both undefined. */
+				/* Object */
+				case "object":
+					/* Array Object */
+					if (setup.VarUtils.isArray(Var1) && setup.VarUtils.isArray(Var2)) {
+						return setup.VarUtils.arraysAreEqual(Var1, Var2, IgnoreObjectPairs);  /* Return whether arrays are equal. */
+					/* Generic Object */
+					} else if (setup.VarUtils.isGenericObject(Var1) && setup.VarUtils.isGenericObject(Var2)) {
+						return setup.VarUtils.objectsAreEqual(Var1, Var2, IgnoreObjectPairs);  /* Return whether generic objects are equal. */
+					/* Date Object */
+					} else if (setup.VarUtils.isDate(Var1) && setup.VarUtils.isDate(Var2)) {
+						return (Var1 - Var2) == 0;  /* Returns whether dates are equal. */
+					/* Map Object */
+					} else if (setup.VarUtils.isMap(Var1) && setup.VarUtils.isMap(Var2)) {
+						return setup.VarUtils.mapsAreEqual(Var1, Var2, IgnoreObjectPairs);  /* Return whether maps are equal. */
+					/* Set Object */
+					} else if (setup.VarUtils.isSet(Var1) && setup.VarUtils.isSet(Var2)) {
+						return setup.VarUtils.setsAreEqual(Var1, Var2, IgnoreObjectPairs);  /* Return whether sets are equal. */
+					/* Null Object */
+					} else if ((Var1 === null) && (Var2 === null)) {
+						return true;  /* Objects are both null. */
+					}
+					return false;  /* Objects either don't match or are of an unsupported type. */
+				default:
+					return false;  /* Unsupported type. */
+			}
+		} else {
+			return false;  /* Variables are not of the same type. */
+		}
+	},
+
+	/* indexOfObject: Returns the index of the first matching Obj object
+			in the Arr array or -1 if not found.
+			Starts at index Idx (or 0 if Idx not included).
+			If Idx is negative, then it starts at that offset from the end of
+			the array (to a minimum of 0).
+			Returns undefined if Arr is not an array. */
+	indexOfObject: function (Arr, Obj, Idx) {
+		if (!setup.VarUtils.isArray(Arr)) {
+			return undefined;  // Not an array.
+		}
+		if (Arr.length === 0) {
+			// Empty array.
+			return -1;  // No match.
+		}
+		var i;
+		if (setup.VarUtils.isUndefined(Idx) || !setup.VarUtils.isInteger(Idx)) {
+			Idx = 0;
+		}
+		if (Idx < 0) {
+			Idx = Arr.length + Idx;
+			if (Idx < 0) {
+				Idx = 0;
+			}
+		}
+		for (i = Idx; i < Arr.length; i++) {
+			if (setup.VarUtils.valuesAreEqual(Obj, Arr[i])) {
+				return i;  // Found a match.
+			}
+		}
+		return -1;  // No match.
+	}
+};
+
+Array.prototype.indexOfObject = function(obj, fromIndex) {
+	return setup.VarUtils.indexOfObject(this, obj, fromIndex);
+};
+
+:: StoryStylesheet [stylesheet]
+button {
+	cursor: pointer;
+	color: 	#203d6b;
+	background-size: 100% 100%;
+	border: 1px solid #ffffff;
+	line-height: normal;
+	padding: 0.4em;
+	transition-duration: 200ms;
+	user-select: none;
+	border-width: 2px;
+	border-radius: 3px;
+	border-color: #000000;
+}
+button:hover {
+	color: 	#00FF00;
+	background-size: 100% 100%;
+	border-color: #000000;
+	border-width: 2px;
+	border-radius: 3px;
+}
